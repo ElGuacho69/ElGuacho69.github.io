@@ -1,0 +1,40 @@
+
+header {
+	background-color: #CCCCCC;
+	position: sticky;
+	top: 0;
+}
+
+h3 {
+	text-align: center ;
+}
+
+article {
+	border-radius: 3px;
+	background-color: #EDEDED;
+	box-shadow: 2px 2px 1px #000000;
+	overflow: auto;
+	padding: 3px;
+	margin: auto 5%;
+}
+
+img {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 5px;
+	border-radius: 3px;
+}
+
+h1 {
+	text-align: center;
+	background-color: #CCCCCC;
+}
+
+.oddimg {
+	float: right;
+}
+
+.oddarticle {
+	background-color: #EDEEED;
+}
