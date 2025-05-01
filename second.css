@@ -95,3 +95,8 @@ h1 {
 .oddarticle {
 	background-color: #EDEEED;
 }
+
+.about {
+	float: right;
+	cursor:pointer;
+}
