@@ -1,0 +1,72 @@
+
+body {
+	margin: 0;
+    font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
+}
+
+header {
+	overflow: auto;
+	display: block;
+	background-color: #CCCCCC;
+    margin: 0;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.navbar {
+	overflow: auto;
+    list-style-type: none;
+	background-color: #922610;
+	padding: 0;
+	margin: 0;
+	position: sticky;
+	top: 0;
+}
+.navbar a {
+    display: inline-block;
+    float: left;
+    color: white;
+	background-color: #922610;
+    padding: 5px 8px;
+
+}
+.navbar a:hover {
+	background-color: #821600;
+    
+}
+
+.navbar a:link {
+    text-decoration: none;
+}
+.navbar a:visited {
+    text-decoration: none;
+}
+.navbar a:link {
+    text-decoration: none;
+}
+.statblock {
+    color: #922610;
+    background-color: #F3E4C2;
+    border-radius: 9px;
+    margin: 5%;
+    padding: 10px;
+    overflow: auto;
+    max-width: 500px;
+}
+
+.statblock h2 {
+    margin: auto 5px;
+}
+
+.statblock p {
+    margin: 3px auto;
+}
+
+.stat {
+    text-align: center;
+    float: left;
+    width: 16%;
+    margin-bottom: 3px;
+}
