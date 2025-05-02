@@ -1,20 +1,17 @@
 
 body {
 	margin: 0;
-	overflow: visible;
-    font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
 }
 
 
 header h1 {
 	text-align: center;
-	background-color: #CCCCCC;
-	margin: 0;
-	height: 10vh;
+	height: 5vh;
 }
 
 header {
-	overflow: visible;
+	background-color: #CCCCCC;
+	overflow: auto;
 }
 
 .navbar {
@@ -23,10 +20,11 @@ header {
 	margin: 0;
 	position: sticky;
 	top: 0;
-	height: 29px;
+	min-height: 29px;
 }
 .navbar a {
-	display: inline;
+	height: 100%;
+	display: inline-block;
 	color: white;
 	background-color: #922610;
 	padding: 5px 8px;
@@ -48,13 +46,13 @@ header {
 }
 .statblock {
     color: #922610;
+    float: left;
     background-color: #F3E4C2;
     border-radius: 9px;
     margin: 5%;
     padding: 10px;
     overflow: auto;
     max-width: 500px;
-    float: left;
     box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
 }
 
