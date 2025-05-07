@@ -20,7 +20,7 @@ header {
 	margin: 0;
 	position: sticky;
 	top: 0;
-	min-height: 29px;
+	overflow: auto;
 }
 .navbar a {
 	height: 100%;
@@ -44,16 +44,32 @@ header {
 .navbar a:link {
     text-decoration: none;
 }
+
+.statblocks {
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	//flex-flow: row wrap;
+	justify-content: center;
+	align-items: stretch;
+}
+
 .statblock {
     color: #922610;
-    float: left;
     background-color: #F3E4C2;
     border-radius: 9px;
-    margin: 5%;
+    margin: 3%;
     padding: 10px;
     overflow: auto;
     max-width: 500px;
     box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    transition: box-shadow 0.1s;
+}
+
+.statblock:hover {
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+
 }
 
 .statblock h2, .statblock h3 {
@@ -71,8 +87,10 @@ header {
     margin-bottom: 5px;
 }
 
-hr {
-	color: #922610;
+.statblock hr {
+	height: 2px;
+	border: 0;
+	background-color: #922610;
 }
 
 .abilities p {
