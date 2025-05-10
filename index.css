@@ -1,0 +1,61 @@
+body {
+    background-color: #312e2e;
+    font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
+    background-image: url(https://thafd.bing.com/th/id/OIP.wJbDWf-Z1whOSskR8JRXUgHaDt?w=333&h=175&c=7&r=0&o=5&dpr=1.4&pid=1.7);
+}
+
+h1 {
+    color:white;
+    background-color: darkred;
+    display: block;
+    text-align: center;
+    height:50px ;
+    padding: 10px;
+}
+
+.bloque{
+ display: block;
+ background-color: aquamarine;
+ box-shadow: 2px 2px 1px #44106b;
+ box-sizing: border-box;
+ float: left;
+ height: 90px;
+ margin: 30px,30px,30px,30px;
+ overflow: auto;
+ padding: 5px;
+}
+
+.boton{
+    text-decoration: dotted;text-decoration-color: red;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 90px 90px 90px;
+    background-color: rgb(206, 187, 199);
+    background-image: url(https://thafd.bing.com/th/id/OIP.2sHXuOGsTqJM0rb-PYo6_QAAAA?w=300&h=300&rs=1&pid=ImgDetMain);
+    padding: 30px;
+    grid-gap: 50px;
+
+}
+
+.dropdown{
+    color: white;
+    padding: 10px;
+    background-color: chocolate;
+}
+.dropdowncontent{
+    display: none;
+    
+}
+.dropdown:hover .dropdowncontent{
+    display: inline-block;
+    position: absolute;
+    padding: 30px;
+    background-color: beige;
+}
+a{
+    text-decoration: none;
+
+}
