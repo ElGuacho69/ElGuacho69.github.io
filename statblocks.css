@@ -54,7 +54,7 @@ header {
 	flex-direction: row;
 	//flex-flow: row wrap;
 	justify-content: center;
-	align-items: stretch;
+	align-items: baseline;
 }
 
 .statblock {
@@ -95,6 +95,10 @@ header {
 	background-color: #922610;
 }
 
+.statblock-title {
+	color: black;
+}
+
 .abilities p {
 	color: black;
 }
@@ -102,4 +106,23 @@ header {
 	height: 1px;
 	background-color: #922610;
 	border: 0;
+}
+
+.locked {
+	background-color: rgb(230, 230, 230);
+	color: grey;
+	border-color: black;
+}
+
+.locked .statblock-title, .locked .abilities p {
+	color: grey;
+}
+
+.locked hr {
+	background-color: grey;
+}
+
+.locked:hover {
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    transform: none;
 }
