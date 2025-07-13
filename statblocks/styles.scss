@@ -1,0 +1,15 @@
+$dark-color: #922610;
+$header-color: #CCCCCC;
+
+.navbar {
+	background-color: #922610;
+	margin: 0;
+	position: sticky;
+	top: 0;
+	overflow: auto;
+	z-index: 10;
+    display: flex;
+    justify-content: left;
+}
+
+
