@@ -1,127 +1,55 @@
-
-body {
-	margin: 0;
+@import 'reset.css';
+.title {
+  background-color: #CCCCCC;
+  display: flex;
+  justify-content: center;
 }
-
-header h1 {
-	text-align: center;
-	height: 5vh;
-}
-
-header {
-	background-color: #CCCCCC;
-	overflow: auto;
+.title__text {
+  font-size: 2.2em;
+  padding: 10px;
 }
 
 .navbar {
-	list-style-type: none;
-	background-color: #922610;
-	margin: 0;
-	padding: 0 0 0 10px;
-	position: sticky;
-	top: 0;
-	overflow: auto;
-	z-index: 10;
+  background-color: #922610;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  z-index: 10;
+  display: flex;
+  justify-content: left;
 }
-.navbar a {
-	height: 100%;
-	display: inline-block;
-	color: white;
-	background-color: #922610;
-	padding: 5px 8px;
-	float: left;
+.navbar__item {
+  display: inline-block;
+  color: white;
+  padding: 5px 8px;
+  cursor: pointer;
 }
-.navbar a:hover {
-	background-color: #821600;
-    
+.navbar__item:hover {
+  background-color: #821600;
 }
-
-.navbar a:link {
-    text-decoration: none;
-}
-.navbar a:visited {
-    text-decoration: none;
-}
-.navbar a:link {
-    text-decoration: none;
+.navbar__item:link, .navbar__item:visited {
+  text-decoration: none;
 }
 
-.statblocks {
-	margin-top: 10px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	//flex-flow: row wrap;
-	justify-content: center;
-	align-items: baseline;
+.statblock-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .statblock {
-    color: #922610;
-    background-color: #F3E4C2;
-    border-radius: 9px;
-    margin: 3%;
-    padding: 10px;
-    overflow: auto;
-    max-width: 500px;
-    box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-    transition: box-shadow 0.1s linear, transform 0.1s linear ;
+  color: #922610;
+  background-color: #F3E4C2;
+  border-radius: 9px;
+  margin: 3%;
+  padding: 10px;
+  overflow: auto;
+  max-width: 500px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
 
-.statblock:hover {
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
-    transform: translate(0px,-2px);
-}
-
-.statblock h2, .statblock h3 {
-    margin: auto auto auto 0px;
-}
-
-.statblock p {
-    margin: 3px auto;
-}
-
-.stat {
-    text-align: center;
-    float: left;
-    width: 16%;
-    margin-bottom: 5px;
-}
-
-.statblock hr {
-	height: 2px;
-	border: 0;
-	background-color: #922610;
-}
-
-.statblock-title {
-	color: black;
-}
-
-.abilities p {
-	color: black;
-}
-.abilities hr {
-	height: 1px;
-	background-color: #922610;
-	border: 0;
-}
-
-.locked {
-	background-color: rgb(230, 230, 230);
-	color: grey;
-	border-color: black;
-}
-
-.locked .statblock-title, .locked .abilities p {
-	color: grey;
-}
-
-.locked hr {
-	background-color: grey;
-}
-
-.locked:hover {
-    box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-    transform: none;
-}
+/*# sourceMappingURL=styles.css.map */

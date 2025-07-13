@@ -1,15 +1,63 @@
-$dark-color: #922610;
-$header-color: #CCCCCC;
+@import 'reset.css';
 
-.navbar {
-	background-color: #922610;
-	margin: 0;
-	position: sticky;
-	top: 0;
-	overflow: auto;
-	z-index: 10;
-    display: flex;
-    justify-content: left;
+$main-color: #922610;
+$highlight-color: #821600;
+$header-color: #CCCCCC;
+$statblock-background-color: #F3E4C2;
+
+.title {
+  background-color: $header-color;
+  display: flex;
+  justify-content: center;
+
+  &__text {
+    font-size: 2.2em;
+    padding: 10px;
+  }
 }
 
+.navbar {
+  background-color: $main-color;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  z-index: 10;
+  display: flex;
+  justify-content: left;
 
+  &__item {
+    display: inline-block;
+    color: white;
+    padding: 5px 8px;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    background-color: $highlight-color;
+  }
+
+  &__item:link, &__item:visited {
+    text-decoration: none;
+  }
+}
+
+.statblock-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.statblock {
+  color: $main-color;
+  background-color: $statblock-background-color;
+  border-radius: 9px;
+  margin: 3%;
+  padding: 10px;
+  overflow: auto;
+  max-width: 500px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
