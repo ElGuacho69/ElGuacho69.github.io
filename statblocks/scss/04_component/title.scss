@@ -1,0 +1,10 @@
+.c-title {
+  background-color: $header-color;
+  display: flex;
+  justify-content: center;
+
+  &__text {
+    font-size: 2.2em;
+    padding: 10px;
+  }
+}

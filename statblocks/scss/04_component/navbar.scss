@@ -1,0 +1,25 @@
+.c-navbar {
+  background-color: $main-color;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  overflow: auto;
+  z-index: 10;
+  display: flex;
+  justify-content: left;
+
+  &__item {
+    display: inline-block;
+    color: white;
+    padding: 5px 8px;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    background-color: $highlight-color;
+  }
+
+  &__item:link, &__item:visited {
+    text-decoration: none;
+  }
+}

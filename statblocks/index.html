@@ -14,127 +14,97 @@
 </head>
 
 <body>
-	<header class="title">
-		<h1 class="title__text">Statblocks Francis D&D</h1>
+	<header class="c-title">
+		<h1 class="c-title__text">Statblocks Francis D&D</h1>
 	</header>
-	<div class="navbar">
-		<a href="#dog" class="navbar__item">Dog</a>
-		<a href="#cat" class="navbar__item">Cat</a>
+	<div class="c-navbar">
+		<a href="#dog" class="c-navbar__item">Dog</a>
+		<a href="#cat" class="c-navbar__item">Cat</a>
 	</div>
-	<div class="statblock-container">
-		<div class="statblock" id="dog">
-			<h2 class="statblock-title">Perro</h2>
-			<p class="statblock-title"><i>Animal, pequeño</i></p>
-			<hr />
-			<p><b>Clase de armadura(CA)</b> 11</p>
-			<p><b>Puntos de vida</b> 4</p>
-			<p><b>Velocidad</b> 40 ft.</p>
-			<hr />
-			<span class="stat">
-				<div><b>STR</b></div>
-				<div>11(+0)</div>
-			</span>
-			<span class="stat">
-				<div><b>DEX</b></div>
-				<div>12(+1)</div>
-			</span>
-			<span class="stat">
-				<div><b>CON</b></div>
-				<div>12(+1)</div>
-			</span>
-			<span class="stat">
-				<div><b>INT</b></div>
-				<div>11(+0)</div>
-			</span>
-			<span class="stat">
-				<div><b>WIS</b></div>
-				<div>16(+3)</div>
-			</span>
-			<span class="stat">
-				<div><b>CHA</b></div>
-				<div>12(+1)</div>
-			</span>
-			<hr style="clear: left" />
-			<p><b>Habilidades</b> Percepción +3, sigilo +4</p>
-			<p><b>Valor de desafío(VD)</b> 1/8</p>
-			<p><b>Bonificador por competencia </b> +2</p>
-			<hr />
-			<br />
-			<div class="abilities">
-				<h3>Rasgos</h3>
-				<hr />
-				<p>
-					<b>Olfato y oído agudos.</b> El perro tiene ventaja en las tiradas
-					de percepción basadas en olfato y oído.
-				</p>
-				<br />
-				<h3>Acciones</h3>
-				<hr />
-				<p>
-					<b>Mordisco.</b><i> Ataque cuerpo a cuerpo:</i> +2 a dar, sin
-					alcance, un objetivo. <i>Daño:</i>
-					2d4+2 perforante. El objetivo debe superar una tirada de salvación
-					de fuerza CD 11 o caer al suelo.
-				</p>
+	<div class="l-statblock-container">
+		<div class="c-statblock" id="dog">
+			<div class="c-statblock__name g--black-text g--bold">Perro</div>
+			<p class="g--black-text g--italic">Animal, pequeño</p>
+			<hr class="c-statblock__separator" />
+			<div>
+				<span class="g--bold">Clase de armadura(CA)</span> 11
 			</div>
-		</div>
-		<div class="statblock" id="cat">
-			<h2 class="statblock-title">Perro</h2>
-			<p class="statblock-title"><i>Animal, pequeño</i></p>
-			<hr />
-			<p><b>Clase de armadura(CA)</b> 11</p>
-			<p><b>Puntos de vida</b> 4</p>
-			<p><b>Velocidad</b> 40 ft.</p>
-			<hr />
-			<span class="stat">
-				<div><b>STR</b></div>
-				<div>11(+0)</div>
-			</span>
-			<span class="stat">
-				<div><b>DEX</b></div>
-				<div>12(+1)</div>
-			</span>
-			<span class="stat">
-				<div><b>CON</b></div>
-				<div>12(+1)</div>
-			</span>
-			<span class="stat">
-				<div><b>INT</b></div>
-				<div>11(+0)</div>
-			</span>
-			<span class="stat">
-				<div><b>WIS</b></div>
-				<div>16(+3)</div>
-			</span>
-			<span class="stat">
-				<div><b>CHA</b></div>
-				<div>12(+1)</div>
-			</span>
-			<hr style="clear: left" />
-			<p><b>Habilidades</b> Percepción +3, sigilo +4</p>
-			<p><b>Valor de desafío(VD)</b> 1/8</p>
-			<p><b>Bonificador por competencia </b> +2</p>
-			<hr />
-			<br />
-			<div class="abilities">
-				<h3>Rasgos</h3>
-				<hr />
-				<p>
-					<b>Olfato y oído agudos.</b> El perro tiene ventaja en las tiradas
-					de percepción basadas en olfato y oído.
-				</p>
-				<br />
-				<h3>Acciones</h3>
-				<hr />
-				<p>
-					<b>Mordisco.</b><i> Ataque cuerpo a cuerpo:</i> +2 a dar, sin
-					alcance, un objetivo. <i>Daño:</i>
-					2d4+2 perforante. El objetivo debe superar una tirada de salvación
-					de fuerza CD 11 o caer al suelo.
-				</p>
+			<div>
+				<span class="g--bold">Puntos de vida</span> 4
 			</div>
-		</div>
+			<div>
+				<span class="g--bold">Velocidad</span> 40 ft.
+			</div>
+			<hr class="c-statblock__separator" />
+			<div class="l-stat-container">
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">STR</div>
+					</div>
+					<div>11(+0)</div>
+				</span>
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">DEX</div>
+					</div>
+					<div>12(+1)</div>
+				</span>
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">CON</div>
+					</div>
+					<div>12(+1)</div>
+				</span>
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">INT</div>
+					</div>
+					<div>11(+0)</div>
+				</span>
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">WIS</div>
+					</div>
+					<div>16(+3)</div>
+				</span>
+				<span class="l-stat">
+					<div>
+						<div class="g--bold">CHA</div>
+					</div>
+					<div>12(+1)</div>
+				</span>
 
+			</div>
+			<hr class="c-statblock__separator" />
+			<div class="g--margin-vertical-3">
+				<span class="g--bold">Habilidades</span> Percepción +3, sigilo +4
+			</div>
+			<div class="g--margin-vertical-3">
+				<span class="g--bold">Valor de desafío(VD)</span> 1/8
+			</div>
+			<div class="g--margin-vertical-3">
+				<span class="g--bold">Bonificador por competencia</span> +2
+			</div>
+			<hr class="c-statblock__separator" />
+			<br />
+			<div class="abilities">
+				<span class="c-statblock__section-name g--bold">Rasgos</span>
+				<hr class="c-statblock__separator c-statblock__separator--thin" />
+				<div class="g--black-text">
+					<span class="g--bold">Olfato y oído agudos.</span> El perro tiene ventaja en las tiradas
+					de percepción basadas en olfato y oído.
+				</div>
+				<br />
+				<span class="c-statblock__section-name g--bold">Acciones</span>
+				<hr class="c-statblock__separator c-statblock__separator--thin" />
+				<div class="g--black-text">
+					<span class="g--bold">Mordisco.</span><span class="g--italic"> Ataque cuerpo a cuerpo:</span> +2 a
+					dar, sin alcance, un objetivo. <span class="g--italic">Daño:</span>
+					2d4+2 perforante. El objetivo debe superar una tirada de salvación
+					de fuerza CD 11 o caer al suelo.
+				</div>
+			</div>
+		</div>
 	</div>
 
 </html>

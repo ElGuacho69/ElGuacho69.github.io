@@ -1,15 +1,77 @@
-@import 'reset.css';
-.title {
-  background-color: #CCCCCC;
-  display: flex;
-  justify-content: center;
-}
-.title__text {
-  font-size: 2.2em;
-  padding: 10px;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-.navbar {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.l-statblock-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.l-stat-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.l-stat {
+  text-align: center;
+}
+
+.c-navbar {
   background-color: #922610;
   margin: 0;
   position: sticky;
@@ -19,29 +81,20 @@
   display: flex;
   justify-content: left;
 }
-.navbar__item {
+.c-navbar__item {
   display: inline-block;
   color: white;
   padding: 5px 8px;
   cursor: pointer;
 }
-.navbar__item:hover {
+.c-navbar__item:hover {
   background-color: #821600;
 }
-.navbar__item:link, .navbar__item:visited {
+.c-navbar__item:link, .c-navbar__item:visited {
   text-decoration: none;
 }
 
-.statblock-container {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.statblock {
+.c-statblock {
   color: #922610;
   background-color: #F3E4C2;
   border-radius: 9px;
@@ -50,6 +103,97 @@
   overflow: auto;
   max-width: 500px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+}
+.c-statblock__name {
+  font-size: 1.5em;
+}
+.c-statblock__section-name {
+  font-size: 1.1em;
+}
+.c-statblock__separator {
+  height: 2px;
+  border: 0;
+  background-color: #922610;
+}
+.c-statblock__separator--thin {
+  height: 1px;
+}
+
+.c-title {
+  background-color: #CCCCCC;
+  display: flex;
+  justify-content: center;
+}
+.c-title__text {
+  font-size: 2.2em;
+  padding: 10px;
+}
+
+.g--black-text {
+  color: black;
+}
+
+.g--italic {
+  font-style: italic;
+}
+
+.g--bold {
+  font-weight: bold;
+}
+
+.g--margin-vertical-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.g--margin-vertical-1 {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.g--margin-vertical-2 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.g--margin-vertical-3 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.g--margin-vertical-4 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.g--margin-vertical-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.g--margin-vertical-6 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.g--margin-vertical-7 {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.g--margin-vertical-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.g--margin-vertical-9 {
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+
+.g--margin-vertical-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

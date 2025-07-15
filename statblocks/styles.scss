@@ -1,63 +1,20 @@
-@import 'reset.css';
+//01_utilities
+@import 'scss/01_utilities/colors';
 
-$main-color: #922610;
-$highlight-color: #821600;
-$header-color: #CCCCCC;
-$statblock-background-color: #F3E4C2;
+//02_base
+@import 'scss/02_base/reset';
 
-.title {
-  background-color: $header-color;
-  display: flex;
-  justify-content: center;
+//03_layout
+@import 'scss/03_layout/statblock-container';
+@import 'scss/03_layout/stat-container';
+@import 'scss/03_layout/stat';
 
-  &__text {
-    font-size: 2.2em;
-    padding: 10px;
-  }
-}
+//04_component
+@import 'scss/04_component/navbar';
+@import 'scss/04_component/statblock';
+@import 'scss/04_component/title';
 
-.navbar {
-  background-color: $main-color;
-  margin: 0;
-  position: sticky;
-  top: 0;
-  overflow: auto;
-  z-index: 10;
-  display: flex;
-  justify-content: left;
-
-  &__item {
-    display: inline-block;
-    color: white;
-    padding: 5px 8px;
-    cursor: pointer;
-  }
-
-  &__item:hover {
-    background-color: $highlight-color;
-  }
-
-  &__item:link, &__item:visited {
-    text-decoration: none;
-  }
-}
-
-.statblock-container {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.statblock {
-  color: $main-color;
-  background-color: $statblock-background-color;
-  border-radius: 9px;
-  margin: 3%;
-  padding: 10px;
-  overflow: auto;
-  max-width: 500px;
-  box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-}
+//05_global
+@import 'scss/05_global/text-color';
+@import 'scss/05_global/typography';
+@import 'scss/05_global/margin-vertical';
