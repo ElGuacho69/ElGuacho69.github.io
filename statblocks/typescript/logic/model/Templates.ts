@@ -72,13 +72,9 @@ const sectionTemplate: string = `
 	<span class="c-statblock__section-name g--bold">titleSocket</span>
 	<hr class="c-statblock__separator c-statblock__separator--thin" />
 	<div class="g--black-text">
-		<span class="g--bold">Olfato y oído agudos.</span> textSocket
+		textSocket
 	</div>
 `;
-
-const sectionEntryTemplate: string = `<div class="g--black-text">
-		entryTextSocket
-	</div>`;
 
 const boldTemplate: string = `<span class="g--bold">boldTextSocket</span>`;
 
@@ -86,4 +82,4 @@ const italicTemplate: string = `<span class="g--italic">italicTextSocket</span>`
 
 const breakTemplate: string = "<br/>"
 
-export { statblockTemplate, sectionTemplate, sectionEntryTemplate, boldTemplate, italicTemplate, breakTemplate };
+export { statblockTemplate, sectionTemplate, boldTemplate, italicTemplate, breakTemplate };

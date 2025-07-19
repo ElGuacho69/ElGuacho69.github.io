@@ -1,6 +1,6 @@
 (() => {
-  // typescript/logic/model/Statblock.ts
-  var template = `<div class="c-statblock" id="dog">
+  // typescript/logic/model/Templates.ts
+  var statblockTemplate = `<div class="c-statblock" id="dog">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
 							<hr class="c-statblock__separator" />
@@ -66,23 +66,19 @@
 							<hr class="c-statblock__separator" />
 							<br />
 							<div class="abilities">
-								<span class="c-statblock__section-name g--bold">Rasgos</span>
-								<hr class="c-statblock__separator c-statblock__separator--thin" />
-								<div class="g--black-text">
-									<span class="g--bold">Olfato y o\xEDdo agudos.</span> El perro tiene ventaja en las tiradas
-									de percepci\xF3n basadas en olfato y o\xEDdo.
-								</div>
-								<br />
-								<span class="c-statblock__section-name g--bold">Acciones</span>
-								<hr class="c-statblock__separator c-statblock__separator--thin" />
-								<div class="g--black-text">
-									<span class="g--bold">Mordisco.</span><span class="g--italic"> Ataque cuerpo a cuerpo:</span> +2 a
-									dar, sin alcance, un objetivo. <span class="g--italic">Da\xF1o:</span>
-									2d4+2 perforante. El objetivo debe superar una tirada de salvaci\xF3n
-									de fuerza CD 11 o caer al suelo.
-								</div>
+								sectionsSocket
 							</div>
 						</div>`;
+  var sectionTemplate = `
+	<span class="c-statblock__section-name g--bold">titleSocket</span>
+	<hr class="c-statblock__separator c-statblock__separator--thin" />
+	<div class="g--black-text">
+		textSocket
+	</div>
+`;
+  var boldTemplate = `<span class="g--bold">boldTextSocket</span>`;
+  var italicTemplate = `<span class="g--italic">italicTextSocket</span>`;
+  var breakTemplate = "<br/>";
 
   // typescript/logic/model/Animal.ts
   var Animal = class _Animal {
@@ -119,7 +115,17 @@
       this.sections = sections;
     }
     toHtml() {
-      return template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString());
+      let template = statblockTemplate;
+      template = template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString());
+      let sectionHtml = "";
+      for (let i = 0; i < this.sections.length; i++) {
+        sectionHtml += this.sections[i].toHtml();
+        if (i != this.sections.length - 1) {
+          sectionHtml += breakTemplate;
+        }
+      }
+      template = template.replace("sectionsSocket", sectionHtml);
+      return template;
     }
     getFormattedChallengeRating() {
       const cr = this.challengeRating;
@@ -152,6 +158,31 @@
     constructor(title, sectionTexts) {
       this.title = title;
       this.sectionTexts = sectionTexts;
+    }
+    toHtml() {
+      let template = sectionTemplate;
+      template = template.replace("titleSocket", this.title);
+      let fullSectionText = "";
+      this.sectionTexts.forEach((sectionText) => {
+        sectionText = this.replaceAllByTemplate(sectionText, "*", boldTemplate, "boldTextSocket");
+        sectionText = this.replaceAllByTemplate(sectionText, "_", italicTemplate, "italicTextSocket");
+        fullSectionText += sectionText;
+      });
+      template = template.replace("textSocket", fullSectionText);
+      return template;
+    }
+    replaceByTemplate(originalString, delimiter, template, socketName) {
+      let splittedString = originalString.split(delimiter);
+      let templateArray = template.split(socketName);
+      splittedString.splice(1, 0, templateArray[0]);
+      splittedString.splice(3, 0, templateArray[1]);
+      return splittedString.join("");
+    }
+    replaceAllByTemplate(originalString, delimiter, template, socketName) {
+      while (originalString.split(delimiter).length != 1) {
+        originalString = this.replaceByTemplate(originalString, delimiter, template, socketName);
+      }
+      return originalString;
     }
   };
 
@@ -246,7 +277,7 @@
     ];
   }
 
-  // typescript/logic/animal/AnimalService.ts
+  // typescript/logic/AnimalService.ts
   function loadAnimals() {
     let animals = getAllAnimals();
     const statblockContainer = document.getElementById("statblock-container");
