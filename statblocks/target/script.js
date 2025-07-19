@@ -163,20 +163,31 @@
       let template = sectionTemplate;
       template = template.replace("titleSocket", this.title);
       let fullSectionText = "";
-      this.sectionTexts.forEach((sectionText) => {
+      for (let i = 0; i < this.sectionTexts.length; i++) {
+        let sectionText = this.sectionTexts[i];
         sectionText = this.replaceAllByTemplate(sectionText, "*", boldTemplate, "boldTextSocket");
         sectionText = this.replaceAllByTemplate(sectionText, "_", italicTemplate, "italicTextSocket");
         fullSectionText += sectionText;
-      });
+        if (i != this.sectionTexts.length - 1) {
+          fullSectionText += breakTemplate;
+          fullSectionText += breakTemplate;
+        }
+      }
       template = template.replace("textSocket", fullSectionText);
       return template;
     }
     replaceByTemplate(originalString, delimiter, template, socketName) {
-      let splittedString = originalString.split(delimiter);
-      let templateArray = template.split(socketName);
+      let splittedString = this.splitFirst(originalString, delimiter);
+      const templateArray = template.split(socketName);
       splittedString.splice(1, 0, templateArray[0]);
       splittedString.splice(3, 0, templateArray[1]);
       return splittedString.join("");
+    }
+    splitFirst(originalString, delimiter) {
+      const arr = originalString.split(delimiter);
+      let result = arr.splice(0, 2);
+      result.push(arr.join(delimiter));
+      return result;
     }
     replaceAllByTemplate(originalString, delimiter, template, socketName) {
       while (originalString.split(delimiter).length != 1) {
@@ -232,7 +243,10 @@
     "sections": [
       {
         "title": "Rasgos",
-        "texts": ["*Olfato y o\xEDdo agudos.* El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo."]
+        "texts": [
+          "*Olfato y o\xEDdo agudos.* El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo.",
+          "*T\xFA samba que piripita* _pimienta_ pitonga *pitanga* _y pita_. hehe"
+        ]
       },
       {
         "title": "Acciones",
