@@ -1,7 +1,7 @@
 import { sectionTemplate, boldTemplate, italicTemplate, breakTemplate } from "./Templates";
 export class Section {
-	title: string;
-	sectionTexts: string[];
+	private title: string;
+	private sectionTexts: string[];
 
 	constructor(title: string, sectionTexts: string[]){
 		this.title = title;

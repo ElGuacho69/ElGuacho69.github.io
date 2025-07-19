@@ -1,25 +1,25 @@
 import { Section } from './Section';
 import { statblockTemplate, breakTemplate } from './Templates';
 export class Animal {
-	name: string;
-	size: string;
+	private name: string;
+	private size: string;
 
-	armorClass: number;
-	hitPoints: number;
-	speed: number;
+	private armorClass: number;
+	private hitPoints: number;
+	private speed: number;
 
-	strength: number;
-	dexterity: number;
-	constitution: number;
-	intelligence: number;
-	wisdom: number;
-	charisma: number;
+	private strength: number;
+	private dexterity: number;
+	private constitution: number;
+	private intelligence: number;
+	private wisdom: number;
+	private charisma: number;
 
-	skills: string;
-	challengeRating: number;
-	proficiencyBonus: number;
+	private skills: string;
+	private challengeRating: number;
+	private proficiencyBonus: number;
 
-	sections: Section[];
+	private sections: Section[];
 
 	constructor(name: string,
 	size: string,
