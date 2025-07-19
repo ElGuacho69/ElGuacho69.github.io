@@ -1,4 +1,4 @@
-const statblockTemplate: string = `<div class="c-statblock" id="dog">
+const statblockTemplate: string = `<div class="c-statblock" id="idSocket">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
 							<hr class="c-statblock__separator" />
@@ -76,10 +76,12 @@ const sectionTemplate: string = `
 	</div>
 `;
 
+const navbarItemTemplate: string = `<a href="#idSocket" class="c-navbar__item">nameSocket</a>`;
+
 const boldTemplate: string = `<span class="g--bold">boldTextSocket</span>`;
 
 const italicTemplate: string = `<span class="g--italic">italicTextSocket</span>`;
 
 const breakTemplate: string = "<br/>"
 
-export { statblockTemplate, sectionTemplate, boldTemplate, italicTemplate, breakTemplate };
+export { statblockTemplate, sectionTemplate, navbarItemTemplate, boldTemplate, italicTemplate, breakTemplate };

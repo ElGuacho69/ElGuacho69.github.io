@@ -82,7 +82,8 @@ export class Animal {
 							.replace('charismaModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.charisma)))
 							.replace('skillsSocket', this.skills)
 							.replace('challengeRatingSocket', this.getFormattedChallengeRating())
-							.replace('proficiencyBonusSocket', this.proficiencyBonus.toString());
+							.replace('proficiencyBonusSocket', this.proficiencyBonus.toString())
+							.replace('idSocket', this.getId());
 		let sectionHtml = '';
 		for(let i: number = 0; i < this.sections.length; i++) {
 			sectionHtml += this.sections[i].toHtml();
@@ -117,5 +118,13 @@ export class Animal {
 		} else {
 			return modifier.toString();
 		}
+	}
+
+	getId() {
+		return this.name.replace(' ', '-');
+	}
+	
+	getName() {
+		return this.name;
 	}
 }

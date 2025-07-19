@@ -1,6 +1,6 @@
 (() => {
   // typescript/logic/model/Templates.ts
-  var statblockTemplate = `<div class="c-statblock" id="dog">
+  var statblockTemplate = `<div class="c-statblock" id="idSocket">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
 							<hr class="c-statblock__separator" />
@@ -76,6 +76,7 @@
 		textSocket
 	</div>
 `;
+  var navbarItemTemplate = `<a href="#idSocket" class="c-navbar__item">nameSocket</a>`;
   var boldTemplate = `<span class="g--bold">boldTextSocket</span>`;
   var italicTemplate = `<span class="g--italic">italicTextSocket</span>`;
   var breakTemplate = "<br/>";
@@ -116,7 +117,7 @@
     }
     toHtml() {
       let template = statblockTemplate;
-      template = template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString());
+      template = template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString()).replace("idSocket", this.getId());
       let sectionHtml = "";
       for (let i = 0; i < this.sections.length; i++) {
         sectionHtml += this.sections[i].toHtml();
@@ -148,6 +149,12 @@
       } else {
         return modifier.toString();
       }
+    }
+    getId() {
+      return this.name.replace(" ", "-");
+    }
+    getName() {
+      return this.name;
     }
   };
 
@@ -243,10 +250,7 @@
     "sections": [
       {
         "title": "Rasgos",
-        "texts": [
-          "*Olfato y o\xEDdo agudos.* El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo.",
-          "*T\xFA samba que piripita* _pimienta_ pitonga *pitanga* _y pita_. hehe"
-        ]
+        "texts": ["*Olfato y o\xEDdo agudos.* El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo."]
       },
       {
         "title": "Acciones",
@@ -295,8 +299,10 @@
   function loadAnimals() {
     let animals = getAllAnimals();
     const statblockContainer = document.getElementById("statblock-container");
+    const navbar = document.getElementById("navbar");
     animals.forEach((animal) => {
-      console.log(animal.toHtml());
+      const navbarHtml = navbarItemTemplate.replace("idSocket", animal.getId()).replace("nameSocket", animal.getName());
+      navbar.insertAdjacentHTML("beforeend", navbarHtml);
       statblockContainer.insertAdjacentHTML("beforeend", animal.toHtml());
     });
   }
