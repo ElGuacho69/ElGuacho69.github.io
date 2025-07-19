@@ -1,4 +1,5 @@
 import { Section } from './Section';
+import { template } from './Statblock';
 export class Animal {
 	name: string;
 	size: string;
@@ -15,7 +16,7 @@ export class Animal {
 	charisma: number;
 
 	skills: string;
-	challengeRating: string;
+	challengeRating: number;
 	proficiencyBonus: number;
 
 	sections: Section[];
@@ -35,7 +36,7 @@ export class Animal {
 	charisma: number,
 
 	skills: string,
-	challengeRating: string,
+	challengeRating: number,
 	proficiencyBonus: number,
 
 	sections: Section[]) {
@@ -58,5 +59,53 @@ export class Animal {
 		this.proficiencyBonus = proficiencyBonus; 
 
 		this.sections = sections;
+	}
+
+	toHtml(): string {
+		return  template.replace('nameSocket', this.name)
+						.replace('sizeSocket', this.size)
+						.replace('armorClassSocket', this.armorClass.toString())
+						.replace('hitPointsSocket', this.hitPoints.toString())
+						.replace('speedSocket', this.speed.toString())
+						.replace('strengthSocket', this.strength.toString())
+						.replace('strengthModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.strength)))
+						.replace('dexteritySocket', this.dexterity.toString())
+						.replace('dexterityModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.dexterity)))
+						.replace('constitutionSocket', this.constitution.toString())
+						.replace('constitutionModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.constitution)))
+						.replace('intelligenceSocket', this.intelligence.toString())
+						.replace('intelligenceModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.intelligence)))
+						.replace('wisdomSocket', this.wisdom.toString())
+						.replace('wisdomModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.wisdom)))
+						.replace('charismaSocket', this.charisma.toString())
+						.replace('charismaModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.charisma)))
+						.replace('skillsSocket', this.skills)
+						.replace('challengeRatingSocket', this.getFormattedChallengeRating())
+						.replace('proficiencyBonusSocket', this.proficiencyBonus.toString());
+	}
+
+	getFormattedChallengeRating(): string {
+		const cr = this.challengeRating;
+		if(cr == 0.125) {
+			return '1/8';
+		} else if (cr == 0.25) {
+			return '1/4'
+		} else if (cr == 0.5) {
+			return '1/2'
+		} else {
+			return cr.toString();
+		}
+	}
+
+	static scoreToModifier(score: number): number {
+		return Math.floor((score - 10)/2);
+	}
+
+	static formatModifier(modifier: number): string {
+		if(modifier >= 0) {
+			return '+' + modifier.toString();
+		} else {
+			return modifier.toString();
+		}
 	}
 }

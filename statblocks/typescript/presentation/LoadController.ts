@@ -1,4 +1,4 @@
-import { test } from '../logic/AnimalService';
+import { loadAnimals } from '../logic/animal/AnimalService';
 document.addEventListener('DOMContentLoaded', () => {
-	test();
+	loadAnimals();
 });
