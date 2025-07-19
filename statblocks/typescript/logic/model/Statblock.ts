@@ -1,4 +1,4 @@
-const template: string = `<div class="c-statblock" id="dog">
+const statblockTemplate: string = `<div class="c-statblock" id="dog">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
 							<hr class="c-statblock__separator" />
@@ -64,21 +64,26 @@ const template: string = `<div class="c-statblock" id="dog">
 							<hr class="c-statblock__separator" />
 							<br />
 							<div class="abilities">
-								<span class="c-statblock__section-name g--bold">Rasgos</span>
-								<hr class="c-statblock__separator c-statblock__separator--thin" />
-								<div class="g--black-text">
-									<span class="g--bold">Olfato y oído agudos.</span> El perro tiene ventaja en las tiradas
-									de percepción basadas en olfato y oído.
-								</div>
-								<br />
-								<span class="c-statblock__section-name g--bold">Acciones</span>
-								<hr class="c-statblock__separator c-statblock__separator--thin" />
-								<div class="g--black-text">
-									<span class="g--bold">Mordisco.</span><span class="g--italic"> Ataque cuerpo a cuerpo:</span> +2 a
-									dar, sin alcance, un objetivo. <span class="g--italic">Daño:</span>
-									2d4+2 perforante. El objetivo debe superar una tirada de salvación
-									de fuerza CD 11 o caer al suelo.
-								</div>
+								sectionsSocket
 							</div>
 						</div>`;
-	export { template };
+
+const sectionTemplate: string = `
+	<span class="c-statblock__section-name g--bold">titleSocket</span>
+	<hr class="c-statblock__separator c-statblock__separator--thin" />
+	<div class="g--black-text">
+		<span class="g--bold">Olfato y oído agudos.</span> textSocket
+	</div>
+`;
+
+const sectionEntryTemplate: string = `<div class="g--black-text">
+		entryTextSocket
+	</div>`;
+
+const boldTemplate: string = `<span class="g--bold">boldTextSocket</span>`;
+
+const italicTemplate: string = `<span class="g--italic">italicTextSocket</span>`;
+
+const breakTemplate: string = "<br/>"
+
+export { statblockTemplate, sectionTemplate, sectionEntryTemplate, boldTemplate, italicTemplate, breakTemplate };

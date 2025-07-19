@@ -1,0 +1,27 @@
+const rat = {
+	"name": "Rata",
+	"size": "minúsculo",
+	"armorClass": 10,
+	"hitPoints": 1,
+	"speed": 20,
+	"strength": 2,
+	"dexterity": 11,
+	"constitution": 9,
+	"intelligence": 11,
+	"wisdom": 16,
+	"charisma": 12,
+	"skills": "Visión en la oscuridad 10 ft.",
+	"challengeRating": 0,
+	"proficiencyBonus": 2,
+	"sections": [
+		{
+			"title": "Rasgos",
+			"texts": ["*Olfato agudo.* La rata tiene ventaja en las tiradas de percepción basadas en olfato."]
+		},
+		{
+			"title": "Acciones",
+			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +0 a dar, sin alcance, un objetivo. _Daño:_ 1 perforante."]
+		}
+	]
+};
+export { rat };

@@ -1,5 +1,5 @@
-import { getAllAnimals } from '../../persistance/AnimalRepository';
-import { Animal } from '../model/Animal';
+import { getAllAnimals } from '../persistance/AnimalRepository';
+import { Animal } from './model/Animal';
 
 export function loadAnimals(): void {
 	let animals: Animal[] = getAllAnimals();

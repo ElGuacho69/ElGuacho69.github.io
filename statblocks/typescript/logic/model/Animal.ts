@@ -1,5 +1,5 @@
 import { Section } from './Section';
-import { template } from './Statblock';
+import { statblockTemplate } from './Statblock';
 export class Animal {
 	name: string;
 	size: string;
@@ -62,7 +62,7 @@ export class Animal {
 	}
 
 	toHtml(): string {
-		return  template.replace('nameSocket', this.name)
+		return  statblockTemplate.replace('nameSocket', this.name)
 						.replace('sizeSocket', this.size)
 						.replace('armorClassSocket', this.armorClass.toString())
 						.replace('hitPointsSocket', this.hitPoints.toString())

@@ -148,34 +148,102 @@
   // typescript/logic/model/Section.ts
   var Section = class {
     title;
-    sectionTitles;
     sectionTexts;
-    constructor() {
-      this.title = "Rasgos";
-      this.sectionTitles = ["Olfato y o\xEDdo agudos."];
-      this.sectionTexts = ["El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo."];
+    constructor(title, sectionTexts) {
+      this.title = title;
+      this.sectionTexts = sectionTexts;
     }
+  };
+
+  // typescript/persistance/AnimalMapper.ts
+  function animalJsonToAnimal(json) {
+    const JSONsections = json.sections;
+    const sections = [];
+    JSONsections.forEach((section) => {
+      sections.push(new Section(section.title, section.texts));
+    });
+    const animal = new Animal(
+      json.name,
+      json.size,
+      json.armorClass,
+      json.hitPoints,
+      json.speed,
+      json.strength,
+      json.dexterity,
+      json.constitution,
+      json.intelligence,
+      json.wisdom,
+      json.charisma,
+      json.skills,
+      json.challengeRating,
+      json.proficiencyBonus,
+      sections
+    );
+    return animal;
+  }
+
+  // animals/dog.ts
+  var dog = {
+    "name": "Perro",
+    "size": "peque\xF1o",
+    "armorClass": 11,
+    "hitPoints": 4,
+    "speed": 40,
+    "strength": 11,
+    "dexterity": 12,
+    "constitution": 12,
+    "intelligence": 11,
+    "wisdom": 16,
+    "charisma": 12,
+    "skills": "Percepci\xF3n +3, sigilo +4",
+    "challengeRating": 1 / 8,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": ["*Olfato y o\xEDdo agudos.* El perro tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo."]
+      },
+      {
+        "title": "Acciones",
+        "texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Da\xF1o:_ 2d4+2 perforante. El objetivo debe superar una tirada de salvaci\xF3n de fuerza CD 11 o caer al suelo."]
+      }
+    ]
+  };
+
+  // animals/rat.ts
+  var rat = {
+    "name": "Rata",
+    "size": "min\xFAsculo",
+    "armorClass": 10,
+    "hitPoints": 1,
+    "speed": 20,
+    "strength": 2,
+    "dexterity": 11,
+    "constitution": 9,
+    "intelligence": 11,
+    "wisdom": 16,
+    "charisma": 12,
+    "skills": "Visi\xF3n en la oscuridad 10 ft.",
+    "challengeRating": 0,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": ["*Olfato agudo.* La rata tiene ventaja en las tiradas de percepci\xF3n basadas en olfato."]
+      },
+      {
+        "title": "Acciones",
+        "texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +0 a dar, sin alcance, un objetivo. _Da\xF1o:_ 1 perforante."]
+      }
+    ]
   };
 
   // typescript/persistance/AnimalRepository.ts
   function getAllAnimals() {
-    return [new Animal(
-      "Perro",
-      "peque\xF1o",
-      11,
-      4,
-      40,
-      11,
-      12,
-      12,
-      11,
-      16,
-      12,
-      "Percepci\xF3n +3, sigilo +4",
-      1 / 8,
-      2,
-      [new Section()]
-    )];
+    return [
+      animalJsonToAnimal(dog),
+      animalJsonToAnimal(rat)
+    ];
   }
 
   // typescript/logic/animal/AnimalService.ts
