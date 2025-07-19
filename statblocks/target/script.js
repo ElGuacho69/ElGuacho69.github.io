@@ -287,11 +287,47 @@
     ]
   };
 
+  // animals/slumbear.ts
+  var slumbear = {
+    "name": "Slumbear",
+    "size": "grande",
+    "armorClass": 12,
+    "hitPoints": 60,
+    "speed": 30,
+    "strength": 14,
+    "dexterity": 8,
+    "constitution": 16,
+    "intelligence": 11,
+    "wisdom": 16,
+    "charisma": 12,
+    "skills": "Percepci\xF3n +3",
+    "challengeRating": 2,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": [
+          "*Sue\xF1o profundo.* Al intentar dormir al slumbear, se considera que tiene la mitad de sus puntos de vida. Si el sue\xF1o se evita mediante una tirada de salvaci\xF3n, tiene desventaja en la misma.",
+          "*Hibernaci\xF3n.* Mientras est\xE1 dormido, el slumbear es resistente a todos los tipos de da\xF1o salvo el de fuerza y regenera 4 puntos de vida al inicio de su turno."
+        ]
+      },
+      {
+        "title": "Acciones",
+        "texts": [
+          "*Multiataque.* El slumbear hace dos ataques con sus zarpas.",
+          "*Zarpazo.* _Ataque cuerpo a cuerpo:_ +3 a dar, sin alcance, un objetivo. _Da\xF1o:_ 2d6+2 cortante.",
+          "*Bostezo.* Todas las criaturas que escuchen el bostezo del slumbear, \xE9l mismo incluido, deben hacer una tirada de salvaci\xF3n de constituci\xF3n CD 13 o caer dormidos."
+        ]
+      }
+    ]
+  };
+
   // typescript/persistance/AnimalRepository.ts
   function getAllAnimals() {
     return [
       animalJsonToAnimal(dog),
-      animalJsonToAnimal(rat)
+      animalJsonToAnimal(rat),
+      animalJsonToAnimal(slumbear)
     ];
   }
 
