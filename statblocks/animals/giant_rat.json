@@ -1,4 +1,4 @@
-const giant_rat = {
+{
 	"name": "Rata gigante",
 	"size": "pequeño",
 	"armorClass": 13,
@@ -26,5 +26,4 @@ const giant_rat = {
 			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +4 a dar, sin alcance, un objetivo. _Daño:_ 2d4+2 perforante. El objetivo debe superar una tirada de salvación de fuerza CD 11 o caer al suelo."]
 		}
 	]
-};
-export { giant_rat };
+}

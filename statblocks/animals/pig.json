@@ -1,4 +1,4 @@
-const pig = {
+{
 	"name": "Cerdo",
 	"size": "mediano",
 	"armorClass": 11,
@@ -26,5 +26,4 @@ const pig = {
 			"texts": ["*Placaje.* _Ataque cuerpo a cuerpo:_ +3 a dar, sin alcance, un objetivo. _Daño:_ 1d4+1 contundente."]
 		}
 	]
-};
-export { pig };
+}

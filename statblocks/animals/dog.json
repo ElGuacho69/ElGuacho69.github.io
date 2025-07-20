@@ -1,4 +1,4 @@
-const dog = {
+{
 	"name": "Perro",
 	"size": "pequeño",
 	"armorClass": 11,
@@ -23,5 +23,4 @@ const dog = {
 			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 2d4+2 perforante. El objetivo debe superar una tirada de salvación de fuerza CD 11 o caer al suelo."]
 		}
 	]
-};
-export { dog };
+}

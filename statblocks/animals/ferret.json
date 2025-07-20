@@ -1,4 +1,4 @@
-const ferret  = {
+{
 	"name": "Hurón",
 	"size": "pequeño",
 	"armorClass": 13,
@@ -23,5 +23,4 @@ const ferret  = {
 			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 1 perforante."]
 		}
 	]
-};
-export { ferret };
+}
