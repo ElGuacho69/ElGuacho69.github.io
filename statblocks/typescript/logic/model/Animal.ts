@@ -21,6 +21,8 @@ export class Animal {
 
 	private sections: Section[];
 
+	private locked: boolean = false;
+
 	constructor(name: string,
 	size: string,
 
@@ -83,7 +85,8 @@ export class Animal {
 							.replace('skillsSocket', this.skills)
 							.replace('challengeRatingSocket', this.getFormattedChallengeRating())
 							.replace('proficiencyBonusSocket', this.proficiencyBonus.toString())
-							.replace('idSocket', this.getId());
+							.replace('idSocket', this.getId())
+							.replace('neededLevelSocket', this.getNeededLevel().toString());
 		let sectionHtml = '';
 		for(let i: number = 0; i < this.sections.length; i++) {
 			sectionHtml += this.sections[i].toHtml();
@@ -92,6 +95,11 @@ export class Animal {
 			}
 		}
 		template = template.replace('sectionsSocket', sectionHtml);
+		if(this.locked) {
+			template = template.replace('c-statblock', 'c-statblock c-statblock--locked');
+			template = template.replace('c-statblock__name g--black-text', 'c-statblock__name c-statblock__name--locked g--white-text');
+			template = template.replace('c-statblock__unlock-condition', 'c-statblock__unlock-condition c-statblock__unlock-condition--locked');
+		}
 		return template
 	}
 
@@ -108,6 +116,10 @@ export class Animal {
 		}
 	}
 
+	lock(): void {
+		this.locked = true;
+	}
+
 	static scoreToModifier(score: number): number {
 		return Math.floor((score - 10)/2);
 	}
@@ -120,11 +132,15 @@ export class Animal {
 		}
 	}
 
-	getId() {
+	getId(): string {
 		return this.name.replace(' ', '-');
 	}
 	
-	getName() {
+	getName(): string {
 		return this.name;
+	}
+
+	getNeededLevel(): number {
+		return Math.ceil(this.challengeRating*3);
 	}
 }

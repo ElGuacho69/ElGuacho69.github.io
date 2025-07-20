@@ -103,9 +103,19 @@ table {
   overflow: auto;
   max-width: 500px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.c-statblock--locked {
+  background-color: #303030;
+}
+.c-statblock--locked * {
+  visibility: hidden;
 }
 .c-statblock__name {
   font-size: 1.5em;
+}
+.c-statblock__name--locked {
+  visibility: visible;
 }
 .c-statblock__section-name {
   font-size: 1.1em;
@@ -117,6 +127,26 @@ table {
 }
 .c-statblock__separator--thin {
   height: 1px;
+}
+.c-statblock__unlock-condition {
+  display: none;
+}
+.c-statblock__unlock-condition--locked {
+  display: block;
+  visibility: visible;
+  width: 95%;
+  background-color: transparent;
+  font-size: 1.5em;
+  color: white;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  z-index: 5;
+  opacity: 0;
+  transition: 0.4s linear opacity;
+}
+.c-statblock--locked:hover .c-statblock__unlock-condition--locked {
+  opacity: 1;
 }
 
 .c-title {
@@ -131,6 +161,10 @@ table {
 
 .g--black-text {
   color: black;
+}
+
+.g--white-text {
+  color: white;
 }
 
 .g--italic {

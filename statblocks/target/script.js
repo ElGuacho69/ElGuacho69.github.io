@@ -68,6 +68,7 @@
 							<div class="abilities">
 								sectionsSocket
 							</div>
+							<div class="c-statblock__unlock-condition">Se desbloquea a nivel neededLevelSocket</div>
 						</div>`;
   var sectionTemplate = `
 	<span class="c-statblock__section-name g--bold">titleSocket</span>
@@ -98,6 +99,7 @@
     challengeRating;
     proficiencyBonus;
     sections;
+    locked = false;
     constructor(name, size, armorClass, hitPoints, speed, strength, dexterity, constitution, intelligence, wisdom, charisma, skills, challengeRating, proficiencyBonus, sections) {
       this.name = name;
       this.size = size;
@@ -117,7 +119,7 @@
     }
     toHtml() {
       let template = statblockTemplate;
-      template = template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString()).replace("idSocket", this.getId());
+      template = template.replace("nameSocket", this.name).replace("sizeSocket", this.size).replace("armorClassSocket", this.armorClass.toString()).replace("hitPointsSocket", this.hitPoints.toString()).replace("speedSocket", this.speed.toString()).replace("strengthSocket", this.strength.toString()).replace("strengthModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.strength))).replace("dexteritySocket", this.dexterity.toString()).replace("dexterityModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.dexterity))).replace("constitutionSocket", this.constitution.toString()).replace("constitutionModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.constitution))).replace("intelligenceSocket", this.intelligence.toString()).replace("intelligenceModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.intelligence))).replace("wisdomSocket", this.wisdom.toString()).replace("wisdomModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.wisdom))).replace("charismaSocket", this.charisma.toString()).replace("charismaModifierSocket", _Animal.formatModifier(_Animal.scoreToModifier(this.charisma))).replace("skillsSocket", this.skills).replace("challengeRatingSocket", this.getFormattedChallengeRating()).replace("proficiencyBonusSocket", this.proficiencyBonus.toString()).replace("idSocket", this.getId()).replace("neededLevelSocket", this.getNeededLevel().toString());
       let sectionHtml = "";
       for (let i = 0; i < this.sections.length; i++) {
         sectionHtml += this.sections[i].toHtml();
@@ -126,6 +128,11 @@
         }
       }
       template = template.replace("sectionsSocket", sectionHtml);
+      if (this.locked) {
+        template = template.replace("c-statblock", "c-statblock c-statblock--locked");
+        template = template.replace("c-statblock__name g--black-text", "c-statblock__name c-statblock__name--locked g--white-text");
+        template = template.replace("c-statblock__unlock-condition", "c-statblock__unlock-condition c-statblock__unlock-condition--locked");
+      }
       return template;
     }
     getFormattedChallengeRating() {
@@ -139,6 +146,9 @@
       } else {
         return cr.toString();
       }
+    }
+    lock() {
+      this.locked = true;
     }
     static scoreToModifier(score) {
       return Math.floor((score - 10) / 2);
@@ -155,6 +165,9 @@
     }
     getName() {
       return this.name;
+    }
+    getNeededLevel() {
+      return Math.ceil(this.challengeRating * 3);
     }
   };
 
