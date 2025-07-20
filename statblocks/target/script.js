@@ -344,12 +344,33 @@
     ];
   }
 
+  // typescript/logic/StatService.ts
+  var StatService = class {
+    getLevel() {
+      return 4;
+    }
+    getIntelligence() {
+      return 11;
+    }
+    getWisdom() {
+      return 16;
+    }
+    getCharisma() {
+      return 10;
+    }
+    constructor() {
+    }
+  };
+
   // typescript/logic/AnimalService.ts
   function loadAnimals() {
     let animals = getAllAnimals();
     const statblockContainer = document.getElementById("statblock-container");
     const navbar = document.getElementById("navbar");
+    const statService = new StatService();
     animals.forEach((animal) => {
+      if (animal.getNeededLevel() > statService.getLevel())
+        animal.lock();
       const navbarHtml = navbarItemTemplate.replace("idSocket", animal.getId()).replace("nameSocket", animal.getName());
       navbar.insertAdjacentHTML("beforeend", navbarHtml);
       statblockContainer.insertAdjacentHTML("beforeend", animal.toHtml());
