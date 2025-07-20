@@ -7,9 +7,22 @@
   overflow: auto;
   max-width: 500px;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+  position: relative;
+
+  &--locked {
+    background-color: $locked-statblock-color;
+  }
+
+  &--locked * {
+    visibility: hidden;
+  }
 
   &__name {
     font-size: 1.5em;
+
+    &--locked {
+      visibility: visible;
+    }
   }
 
   &__section-name {
@@ -22,7 +35,32 @@
 	background-color: $main-color;
 
     &--thin {
-	  height: 1px;
+      height: 1px;
     }
+  }
+
+  &__unlock-condition {
+    display: none;
+  }
+
+  &__unlock-condition--locked {
+    display: block;
+    visibility: visible;
+    width: 95%;
+    background-color: transparent;
+    font-size: 1.5em;
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    text-align: center;
+
+    z-index: 5;
+    opacity: 0;
+    transition: 0.4s linear opacity;
+  }
+  
+  &--locked:hover &__unlock-condition--locked {
+    opacity: 1;
   }
 }

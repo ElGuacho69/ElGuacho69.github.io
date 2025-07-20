@@ -66,6 +66,7 @@ const statblockTemplate: string = `<div class="c-statblock" id="idSocket">
 							<div class="abilities">
 								sectionsSocket
 							</div>
+							<div class="c-statblock__unlock-condition">Se desbloquea a nivel neededLevelSocket</div>
 						</div>`;
 
 const sectionTemplate: string = `
