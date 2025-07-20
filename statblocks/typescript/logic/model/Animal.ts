@@ -127,4 +127,28 @@ export class Animal {
 	getName() {
 		return this.name;
 	}
+
+	getIntelligence(): number {
+		return this.intelligence;
+	}
+
+	setIntelligence(intelligence: number): void {
+		this.intelligence = intelligence;
+	}
+
+	getWisdom(): number {
+		return this.wisdom;
+	}
+
+	setWisdom(wisdom: number): void {
+		this.wisdom = wisdom;
+	}
+
+	getCharisma(): number {
+		return this.charisma;
+	}
+
+	setCharisma(charisma: number): void {
+		this.charisma = charisma;
+	}
 }
