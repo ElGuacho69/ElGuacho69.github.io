@@ -1,0 +1,30 @@
+const giant_rat = {
+	"name": "Rata gigante",
+	"size": "pequeño",
+	"armorClass": 13,
+	"hitPoints": 7,
+	"speed": 30,
+	"strength": 2,
+	"dexterity": 14,
+	"constitution": 11,
+	"intelligence": 2,
+	"wisdom": 10,
+	"charisma": 3,
+	"skills": "Visión en la oscuridad 60 ft.",
+	"challengeRating": 1/8,
+	"proficiencyBonus": 2,
+	"sections": [
+		{
+			"title": "Rasgos",
+			"texts": [
+				"*Olfato agudo.* La rata tiene ventaja en las tiradas de percepción basadas en olfato.",
+				"*Atacar en manada.* La rata tiene ventaja en las tiradas de ataque que haga contra un objetivo si hay al menos uno de sus aliados rata a 5 ft. o menos de la criatura y si el objetivo no está incapacitado."
+			]
+		},
+		{
+			"title": "Acciones",
+			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +4 a dar, sin alcance, un objetivo. _Daño:_ 2d4+2 perforante. El objetivo debe superar una tirada de salvación de fuerza CD 11 o caer al suelo."]
+		}
+	]
+};
+export { giant_rat };

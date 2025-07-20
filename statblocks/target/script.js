@@ -166,6 +166,24 @@
     getName() {
       return this.name;
     }
+    getIntelligence() {
+      return this.intelligence;
+    }
+    setIntelligence(intelligence) {
+      this.intelligence = intelligence;
+    }
+    getWisdom() {
+      return this.wisdom;
+    }
+    setWisdom(wisdom) {
+      this.wisdom = wisdom;
+    }
+    getCharisma() {
+      return this.charisma;
+    }
+    setCharisma(charisma) {
+      this.charisma = charisma;
+    }
     getNeededLevel() {
       return Math.ceil(this.challengeRating * 3);
     }
@@ -300,6 +318,96 @@
     ]
   };
 
+  // animals/ferret.ts
+  var ferret = {
+    "name": "Hur\xF3n",
+    "size": "peque\xF1o",
+    "armorClass": 13,
+    "hitPoints": 2,
+    "speed": 35,
+    "strength": 3,
+    "dexterity": 16,
+    "constitution": 8,
+    "intelligence": 5,
+    "wisdom": 10,
+    "charisma": 7,
+    "skills": "Percepci\xF3n +3, sigilo +5",
+    "challengeRating": 0,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": ["*Olfato y o\xEDdo agudos.* El hur\xF3n tiene ventaja en las tiradas de percepci\xF3n basadas en olfato y o\xEDdo."]
+      },
+      {
+        "title": "Acciones",
+        "texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Da\xF1o:_ 1 perforante."]
+      }
+    ]
+  };
+
+  // animals/pig.ts
+  var pig = {
+    "name": "Cerdo",
+    "size": "mediano",
+    "armorClass": 11,
+    "hitPoints": 11,
+    "speed": 25,
+    "strength": 13,
+    "dexterity": 10,
+    "constitution": 12,
+    "intelligence": 3,
+    "wisdom": 7,
+    "charisma": 4,
+    "skills": "Percepci\xF3n +3",
+    "challengeRating": 1 / 8,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": [
+          "*Olfato agudo.* El cerdo tiene ventaja en las tiradas de percepci\xF3n basadas en olfato.",
+          "*Carga.* Si el cerdo se mueve al menos 20 ft. en linea recta y golpea a un objetivo en el mismo turno, este recibe 1d4 de da\xF1o extra y debe superar una tirada de salvaci\xF3n CD 11 o caer al suelo."
+        ]
+      },
+      {
+        "title": "Acciones",
+        "texts": ["*Placaje.* _Ataque cuerpo a cuerpo:_ +3 a dar, sin alcance, un objetivo. _Da\xF1o:_ 1d4+1 contundente."]
+      }
+    ]
+  };
+
+  // animals/giant_rat.ts
+  var giant_rat = {
+    "name": "Rata gigante",
+    "size": "peque\xF1o",
+    "armorClass": 13,
+    "hitPoints": 7,
+    "speed": 30,
+    "strength": 2,
+    "dexterity": 14,
+    "constitution": 11,
+    "intelligence": 2,
+    "wisdom": 10,
+    "charisma": 3,
+    "skills": "Visi\xF3n en la oscuridad 60 ft.",
+    "challengeRating": 1 / 8,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Rasgos",
+        "texts": [
+          "*Olfato agudo.* La rata tiene ventaja en las tiradas de percepci\xF3n basadas en olfato.",
+          "*Atacar en manada.* La rata tiene ventaja en las tiradas de ataque que haga contra un objetivo si hay al menos uno de sus aliados rata a 5 ft. o menos de la criatura y si el objetivo no est\xE1 incapacitado."
+        ]
+      },
+      {
+        "title": "Acciones",
+        "texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +4 a dar, sin alcance, un objetivo. _Da\xF1o:_ 2d4+2 perforante. El objetivo debe superar una tirada de salvaci\xF3n de fuerza CD 11 o caer al suelo."]
+      }
+    ]
+  };
+
   // animals/slumbear.ts
   var slumbear = {
     "name": "Slumbear",
@@ -335,12 +443,43 @@
     ]
   };
 
+  // animals/crabbrain.ts
+  var crabbrain = {
+    "name": "Cerebrejo",
+    "size": "min\xFAsculo",
+    "armorClass": 12,
+    "hitPoints": 2,
+    "speed": 20,
+    "strength": 2,
+    "dexterity": 12,
+    "constitution": 8,
+    "intelligence": 15,
+    "wisdom": 12,
+    "charisma": 11,
+    "skills": "Visi\xF3n en la oscuridad 10 ft.",
+    "challengeRating": 1 / 8,
+    "proficiencyBonus": 2,
+    "sections": [
+      {
+        "title": "Acciones",
+        "texts": [
+          "*Pinzas.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Da\xF1o:_ 1d4+1 cortante.",
+          "*Onda ps\xEDquica.* El cerebrejo emite una onda de energ\xEDa ps\xEDquica contra un objetivo. El objetivo debe hacer una tirada de salvaci\xF3n de inteligencia CD 10. Si falla, el objetivo intenta seguir lo mejor que puede una orden del cerebrejo que consuma movimiento o una acci\xF3n adicional."
+        ]
+      }
+    ]
+  };
+
   // typescript/persistance/AnimalRepository.ts
   function getAllAnimals() {
     return [
       animalJsonToAnimal(dog),
       animalJsonToAnimal(rat),
-      animalJsonToAnimal(slumbear)
+      animalJsonToAnimal(ferret),
+      animalJsonToAnimal(pig),
+      animalJsonToAnimal(giant_rat),
+      animalJsonToAnimal(slumbear),
+      animalJsonToAnimal(crabbrain)
     ];
   }
 
