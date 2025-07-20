@@ -1,25 +1,25 @@
 {
-	"name": "Cerebrejo",
-	"size": "minúsculo",
-	"armorClass": 12,
-	"hitPoints": 2,
-	"speed": 20,
-	"strength": 2,
-	"dexterity": 12,
-	"constitution": 8,
-	"intelligence": 15,
-	"wisdom": 12,
-	"charisma": 11,
-	"skills": "Visión en la oscuridad 10 ft.",
-	"challengeRating": 1/8,
-	"proficiencyBonus": 2,
-	"sections": [
-		{
-			"title": "Acciones",
-			"texts": [
-				"*Pinzas.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 1d4+1 cortante.",
-				"*Onda psíquica.* El cerebrejo emite una onda de energía psíquica contra un objetivo. El objetivo debe hacer una tirada de salvación de inteligencia CD 10. Si falla, el objetivo intenta seguir lo mejor que puede una orden del cerebrejo que consuma movimiento o una acción adicional."
-			]
-		}
-	]
+  "name": "Cerebrejo",
+  "size": "minúsculo",
+  "armorClass": 12,
+  "hitPoints": 2,
+  "speed": 20,
+  "strength": 2,
+  "dexterity": 12,
+  "constitution": 8,
+  "intelligence": 15,
+  "wisdom": 12,
+  "charisma": 11,
+  "skills": "Visión en la oscuridad 10 ft.",
+  "challengeRating": 0.125,
+  "proficiencyBonus": 2,
+  "sections": [
+    {
+      "title": "Acciones",
+      "texts": [
+        "*Pinzas.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 1d4+1 cortante.",
+        "*Onda psíquica.* El cerebrejo emite una onda de energía psíquica contra un objetivo. El objetivo debe hacer una tirada de salvación de inteligencia CD 10. Si falla, el objetivo intenta seguir lo mejor que puede una orden del cerebrejo que consuma movimiento o una acción adicional."
+      ]
+    }
+  ]
 }
