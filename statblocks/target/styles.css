@@ -83,7 +83,9 @@ table {
 }
 .c-navbar__item {
   display: inline-block;
+  white-space: nowrap;
   color: white;
+  flex-shrink: 0;
   padding: 5px 8px;
   cursor: pointer;
 }
