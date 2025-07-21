@@ -1,5 +1,5 @@
 (() => {
-  // typescript/logic/model/Templates.ts
+  // statblocks/typescript/logic/model/Templates.ts
   var statblockTemplate = `<div class="c-statblock" id="idSocket">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
@@ -82,7 +82,7 @@
   var italicTemplate = `<span class="g--italic">italicTextSocket</span>`;
   var breakTemplate = "<br/>";
 
-  // typescript/logic/model/Animal.ts
+  // statblocks/typescript/logic/model/Animal.ts
   var Animal = class _Animal {
     name;
     size;
@@ -189,7 +189,7 @@
     }
   };
 
-  // typescript/logic/model/Section.ts
+  // statblocks/typescript/logic/model/Section.ts
   var Section = class {
     title;
     sectionTexts;
@@ -235,7 +235,7 @@
     }
   };
 
-  // typescript/persistance/AnimalMapper.ts
+  // statblocks/typescript/persistance/AnimalMapper.ts
   function animalJsonToAnimal(json) {
     const JSONsections = json.sections;
     const sections = [];
@@ -262,7 +262,7 @@
     return animal;
   }
 
-  // typescript/persistance/AnimalRepository.ts
+  // statblocks/typescript/persistance/AnimalRepository.ts
   async function getAllAnimals() {
     const list = await fetchJson("../../animals/_list.json");
     const jsonArray = [];
@@ -278,7 +278,7 @@
     return await response.json();
   }
 
-  // typescript/logic/StatService.ts
+  // statblocks/typescript/logic/StatService.ts
   var StatService = class {
     getLevel() {
       return 4;
@@ -296,7 +296,7 @@
     }
   };
 
-  // typescript/logic/AnimalService.ts
+  // statblocks/typescript/logic/AnimalService.ts
   async function loadAnimals() {
     let animals = await getAllAnimals();
     const statblockContainer = document.getElementById("statblock-container");
@@ -311,7 +311,7 @@
     });
   }
 
-  // typescript/presentation/LoadController.ts
+  // statblocks/typescript/presentation/LoadController.ts
   document.addEventListener("DOMContentLoaded", () => {
     loadAnimals();
   });
