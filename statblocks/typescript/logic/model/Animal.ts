@@ -115,6 +115,10 @@ export class Animal {
 			return cr.toString();
 		}
 	}
+	
+	getChallengeRating(): number {
+		return this.challengeRating;
+	}
 
 	lock(): void {
 		this.locked = true;

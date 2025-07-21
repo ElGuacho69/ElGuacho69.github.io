@@ -5,6 +5,7 @@ import { StatService } from './StatService';
 
 export async function loadAnimals(): Promise<void> {
 	let animals: Animal[] =  await getAllAnimals();
+	animals.sort(compareAnimals);
 	const statblockContainer: HTMLElement = document.getElementById('statblock-container') as HTMLElement;
 	const navbar: HTMLElement = document.getElementById('navbar') as HTMLElement;
 	const statService: StatService = new StatService();
@@ -15,4 +16,8 @@ export async function loadAnimals(): Promise<void> {
 		navbar.insertAdjacentHTML('beforeend', navbarHtml);
 		statblockContainer.insertAdjacentHTML('beforeend', animal.toHtml());
 	});
+}
+
+function compareAnimals(a: Animal, b: Animal): number {
+	return a.getChallengeRating() - b.getChallengeRating();
 }
