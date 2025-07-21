@@ -264,11 +264,11 @@
 
   // statblocks/typescript/persistance/AnimalRepository.ts
   async function getAllAnimals() {
-    const list = await fetchJson("../../animals/_list.json");
+    const list = await fetchJson("https://elguacho69.github.io/statblocks/animals/_list.json");
     const jsonArray = [];
     for (let i = 0; i < list.animals.length; i++) {
       let animal = list.animals[i];
-      jsonArray.push(await fetchJson("../../animals/" + animal + ".json"));
+      jsonArray.push(await fetchJson("https://elguacho69.github.io/statblocks/animals/" + animal + ".json"));
     }
     const animalArray = jsonArray.map(animalJsonToAnimal);
     return animalArray;
