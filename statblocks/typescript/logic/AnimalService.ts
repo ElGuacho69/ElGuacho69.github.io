@@ -3,8 +3,8 @@ import { Animal } from './model/Animal';
 import { navbarItemTemplate } from './model/Templates';
 import { StatService } from './StatService';
 
-export function loadAnimals(): void {
-	let animals: Animal[] = getAllAnimals();
+export async function loadAnimals(): Promise<void> {
+	let animals: Animal[] =  await getAllAnimals();
 	const statblockContainer: HTMLElement = document.getElementById('statblock-container') as HTMLElement;
 	const navbar: HTMLElement = document.getElementById('navbar') as HTMLElement;
 	const statService: StatService = new StatService();

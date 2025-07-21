@@ -1,22 +1,18 @@
 import { Animal } from '../logic/model/Animal';
 import { animalJsonToAnimal } from './AnimalMapper';
 
-//Animal imports
-import { dog } from '../../animals/dog';
-import { rat } from '../../animals/rat';
-import { ferret } from '../../animals/ferret';
-import { pig } from '../../animals/pig';
-import { giant_rat } from '../../animals/giant_rat';
-import { slumbear } from '../../animals/slumbear';
-import { crabbrain } from '../../animals/crabbrain';
-export function getAllAnimals(): Animal[] {
-	return [
-		animalJsonToAnimal(dog),
-		animalJsonToAnimal(rat),
-		animalJsonToAnimal(ferret),
-		animalJsonToAnimal(pig),
-		animalJsonToAnimal(giant_rat),
-		animalJsonToAnimal(slumbear),
-		animalJsonToAnimal(crabbrain)
-	];
+export async function getAllAnimals(): Promise<Animal[]> {
+	const list: any = await fetchJson('../../animals/_list.json');
+	const jsonArray: any[] = [];
+	for(let i: number = 0; i < list.animals.length; i++) {
+		let animal = list.animals[i];
+		jsonArray.push(await fetchJson('../../animals/' + animal + '.json'))
+	}
+	const animalArray: Animal[] = jsonArray.map(animalJsonToAnimal);
+	return animalArray;
+}
+
+async function fetchJson(url: string): Promise<any> {
+	const response = await fetch(url);
+	return await response.json();
 }
