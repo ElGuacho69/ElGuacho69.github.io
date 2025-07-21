@@ -147,6 +147,9 @@
         return cr.toString();
       }
     }
+    getChallengeRating() {
+      return this.challengeRating;
+    }
     lock() {
       this.locked = true;
     }
@@ -299,6 +302,7 @@
   // statblocks/typescript/logic/AnimalService.ts
   async function loadAnimals() {
     let animals = await getAllAnimals();
+    animals.sort(compareAnimals);
     const statblockContainer = document.getElementById("statblock-container");
     const navbar = document.getElementById("navbar");
     const statService = new StatService();
@@ -309,6 +313,9 @@
       navbar.insertAdjacentHTML("beforeend", navbarHtml);
       statblockContainer.insertAdjacentHTML("beforeend", animal.toHtml());
     });
+  }
+  function compareAnimals(a, b) {
+    return a.getChallengeRating() - b.getChallengeRating();
   }
 
   // statblocks/typescript/presentation/LoadController.ts
