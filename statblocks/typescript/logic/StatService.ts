@@ -6,14 +6,17 @@ export class StatService {
 	}
 
 	async getIntelligence(): Promise<number> {
-		return 11;
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getIntelligence();
 	}
 
 	async getWisdom(): Promise<number> {
-		return 16;
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getWisdom();
 	}
 
 	async getCharisma(): Promise<number> {
-		return 10;
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getCharisma();
 	}
 }

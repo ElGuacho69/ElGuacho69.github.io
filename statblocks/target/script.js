@@ -286,6 +286,12 @@
     static characterURL = "https://nivel20.com/s/w4eazczc";
     static instance;
     document;
+    static STR = 0;
+    static DEX = 1;
+    static CON = 2;
+    static INT = 3;
+    static WIS = 4;
+    static CHA = 5;
     constructor() {
     }
     async initializeStatRepository() {
@@ -311,6 +317,24 @@
       const level = Number.parseInt(parsedLevelDiv[parsedLevelDiv.length - 1]);
       return level;
     }
+    getStat(index) {
+      const characterDetails = this.document.getElementsByClassName("character-details")[0];
+      console.log(characterDetails.innerHTML);
+      const tabContent = characterDetails.getElementsByClassName("tab-content")[0];
+      const panelInfo = tabContent.getElementsByClassName("tab-pane")[0];
+      const abilityGrid = panelInfo.getElementsByClassName("card-body")[0].getElementsByClassName("ability-grid")[0];
+      const abilityCell = abilityGrid.getElementsByClassName("ability-cell")[index];
+      return Number.parseInt(abilityCell.getElementsByClassName("value")[0].innerHTML);
+    }
+    getIntelligence() {
+      return this.getStat(_StatRepository.INT);
+    }
+    getWisdom() {
+      return this.getStat(_StatRepository.WIS);
+    }
+    getCharisma() {
+      return this.getStat(_StatRepository.CHA);
+    }
   };
 
   // typescript/logic/StatService.ts
@@ -320,13 +344,16 @@
       return statRepository.getLevel();
     }
     async getIntelligence() {
-      return 11;
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getIntelligence();
     }
     async getWisdom() {
-      return 16;
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getWisdom();
     }
     async getCharisma() {
-      return 10;
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getCharisma();
     }
   };
 
