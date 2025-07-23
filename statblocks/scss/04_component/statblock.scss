@@ -54,13 +54,8 @@
     position: absolute;
     top: 50%;
     text-align: center;
+    opacity: 0;
 
     z-index: 5;
-    opacity: 0;
-    transition: 0.4s linear opacity;
-  }
-  
-  &--locked:hover &__unlock-condition--locked {
-    opacity: 1;
   }
 }

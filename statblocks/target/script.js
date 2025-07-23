@@ -266,12 +266,13 @@
   }
 
   // typescript/persistance/AnimalRepository.ts
+  var repoURL = "https://elguacho69.github.io/statblocks";
   async function getAllAnimals() {
-    const list = await fetchJson("https://elguacho69.github.io/statblocks/animals/!list.json");
+    const list = await fetchJson(repoURL + "/animals/!list.json");
     const jsonArray = [];
     for (let i = 0; i < list.animals.length; i++) {
       let animal = list.animals[i];
-      jsonArray.push(await fetchJson("https://elguacho69.github.io/statblocks/animals/" + animal + ".json"));
+      jsonArray.push(await fetchJson(repoURL + "/animals/" + animal + ".json"));
     }
     const animalArray = jsonArray.map(animalJsonToAnimal);
     return animalArray;
@@ -383,8 +384,32 @@
     return a.getChallengeRating() - b.getChallengeRating();
   }
 
+  // typescript/presentation/LockedStatblocksController.ts
+  function setUpObservers() {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    };
+    const callback = (entries, observer2) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("g--fade-in");
+          observer2.unobserve(entry.target);
+        }
+      });
+    };
+    const observer = new IntersectionObserver(callback, options);
+    const unlockTexts = document.querySelectorAll(".c-statblock__unlock-condition--locked");
+    unlockTexts.forEach((element) => {
+      console.log("pom");
+      observer.observe(element);
+    });
+  }
+
   // typescript/presentation/LoadController.ts
-  document.addEventListener("DOMContentLoaded", () => {
-    loadAnimals();
+  document.addEventListener("DOMContentLoaded", async () => {
+    await loadAnimals();
+    setUpObservers();
   });
 })();
