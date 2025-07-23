@@ -1,5 +1,5 @@
 (() => {
-  // statblocks/typescript/logic/model/Templates.ts
+  // typescript/logic/model/Templates.ts
   var statblockTemplate = `<div class="c-statblock" id="idSocket">
 							<div class="c-statblock__name g--black-text g--bold">nameSocket</div>
 							<p class="g--black-text g--italic">Animal, sizeSocket</p>
@@ -82,7 +82,7 @@
   var italicTemplate = `<span class="g--italic">italicTextSocket</span>`;
   var breakTemplate = "<br/>";
 
-  // statblocks/typescript/logic/model/Animal.ts
+  // typescript/logic/model/Animal.ts
   var Animal = class _Animal {
     name;
     size;
@@ -192,7 +192,7 @@
     }
   };
 
-  // statblocks/typescript/logic/model/Section.ts
+  // typescript/logic/model/Section.ts
   var Section = class {
     title;
     sectionTexts;
@@ -238,7 +238,7 @@
     }
   };
 
-  // statblocks/typescript/persistance/AnimalMapper.ts
+  // typescript/persistance/AnimalMapper.ts
   function animalJsonToAnimal(json) {
     const JSONsections = json.sections;
     const sections = [];
@@ -265,7 +265,7 @@
     return animal;
   }
 
-  // statblocks/typescript/persistance/AnimalRepository.ts
+  // typescript/persistance/AnimalRepository.ts
   async function getAllAnimals() {
     const list = await fetchJson("https://elguacho69.github.io/statblocks/animals/!list.json");
     const jsonArray = [];
@@ -281,44 +281,109 @@
     return await response.json();
   }
 
-  // statblocks/typescript/logic/StatService.ts
-  var StatService = class {
+  // typescript/persistance/nivel20API/StatRepository.ts
+  var StatRepository = class _StatRepository {
+    static characterURL = "https://nivel20.com/s/w4eazczc";
+    static instance;
+    document;
+    static STR = 0;
+    static DEX = 1;
+    static CON = 2;
+    static INT = 3;
+    static WIS = 4;
+    static CHA = 5;
+    constructor() {
+    }
+    async initializeStatRepository() {
+      const response = await fetch(_StatRepository.characterURL);
+      const parser = new DOMParser();
+      const document2 = parser.parseFromString(await response.text(), "text/html");
+      this.document = document2;
+    }
+    static async getInstance() {
+      if (_StatRepository.instance == null) {
+        let statRepository = new _StatRepository();
+        await statRepository.initializeStatRepository();
+        _StatRepository.instance = statRepository;
+        return statRepository;
+      } else {
+        return _StatRepository.instance;
+      }
+    }
     getLevel() {
-      return 4;
+      const characterDesc = this.document.getElementsByClassName("character-desc")[0];
+      const levelDiv = characterDesc.getElementsByClassName("col-12")[1];
+      const parsedLevelDiv = levelDiv.innerHTML.split(" ");
+      const level = Number.parseInt(parsedLevelDiv[parsedLevelDiv.length - 1]);
+      return level;
+    }
+    getStat(index) {
+      const characterDetails = this.document.getElementsByClassName("character-details")[0];
+      console.log(characterDetails.innerHTML);
+      const tabContent = characterDetails.getElementsByClassName("tab-content")[0];
+      const panelInfo = tabContent.getElementsByClassName("tab-pane")[0];
+      const abilityGrid = panelInfo.getElementsByClassName("card-body")[0].getElementsByClassName("ability-grid")[0];
+      const abilityCell = abilityGrid.getElementsByClassName("ability-cell")[index];
+      return Number.parseInt(abilityCell.getElementsByClassName("value")[0].innerHTML);
     }
     getIntelligence() {
-      return 11;
+      return this.getStat(_StatRepository.INT);
     }
     getWisdom() {
-      return 16;
+      return this.getStat(_StatRepository.WIS);
     }
     getCharisma() {
-      return 10;
-    }
-    constructor() {
+      return this.getStat(_StatRepository.CHA);
     }
   };
 
-  // statblocks/typescript/logic/AnimalService.ts
+  // typescript/logic/StatService.ts
+  var StatService = class {
+    async getLevel() {
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getLevel();
+    }
+    async getIntelligence() {
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getIntelligence();
+    }
+    async getWisdom() {
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getWisdom();
+    }
+    async getCharisma() {
+      const statRepository = await StatRepository.getInstance();
+      return statRepository.getCharisma();
+    }
+  };
+
+  // typescript/logic/AnimalService.ts
   async function loadAnimals() {
     let animals = await getAllAnimals();
     animals.sort(compareAnimals);
     const statblockContainer = document.getElementById("statblock-container");
     const navbar = document.getElementById("navbar");
     const statService = new StatService();
+    const characterLevel = await statService.getLevel();
+    const characterIntelligence = await statService.getIntelligence();
+    const characterWisdom = await statService.getWisdom();
+    const characterCharisma = await statService.getCharisma();
     animals.forEach((animal) => {
-      if (animal.getNeededLevel() > statService.getLevel())
+      if (animal.getNeededLevel() > characterLevel)
         animal.lock();
+      animal.setIntelligence(characterIntelligence);
+      animal.setWisdom(characterWisdom);
+      animal.setCharisma(characterCharisma);
+      statblockContainer.insertAdjacentHTML("beforeend", animal.toHtml());
       const navbarHtml = navbarItemTemplate.replace("idSocket", animal.getId()).replace("nameSocket", animal.getName());
       navbar.insertAdjacentHTML("beforeend", navbarHtml);
-      statblockContainer.insertAdjacentHTML("beforeend", animal.toHtml());
     });
   }
   function compareAnimals(a, b) {
     return a.getChallengeRating() - b.getChallengeRating();
   }
 
-  // statblocks/typescript/presentation/LoadController.ts
+  // typescript/presentation/LoadController.ts
   document.addEventListener("DOMContentLoaded", () => {
     loadAnimals();
   });

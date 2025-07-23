@@ -1,21 +1,22 @@
+import { StatRepository } from "../persistance/nivel20API/StatRepository";
 export class StatService {
-	getLevel(): number {
-		return 4;
+	async getLevel(): Promise<number> {
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getLevel();
 	}
 
-	getIntelligence(): number {
-		return 11;
+	async getIntelligence(): Promise<number> {
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getIntelligence();
 	}
 
-	getWisdom(): number {
-		return 16;
+	async getWisdom(): Promise<number> {
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getWisdom();
 	}
 
-	getCharisma(): number {
-		return 10;
-	}
-
-	constructor(){
-
+	async getCharisma(): Promise<number> {
+		const statRepository: StatRepository = await StatRepository.getInstance();
+		return statRepository.getCharisma();
 	}
 }
