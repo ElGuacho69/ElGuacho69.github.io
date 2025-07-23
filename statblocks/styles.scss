@@ -1,5 +1,6 @@
 //01_utilities
 @import 'scss/01_utilities/colors';
+@import 'scss/01_utilities/animations';
 
 //02_base
 @import 'scss/02_base/reset';
@@ -15,6 +16,7 @@
 @import 'scss/04_component/title';
 
 //05_global
+@import 'scss/05_global/animations';
 @import 'scss/05_global/text-color';
 @import 'scss/05_global/typography';
 @import 'scss/05_global/margin-vertical';

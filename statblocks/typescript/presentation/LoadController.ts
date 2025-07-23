@@ -1,4 +1,6 @@
 import { loadAnimals } from '../logic/AnimalService';
-document.addEventListener('DOMContentLoaded', () => {
-	loadAnimals();
+import { setUpObservers } from './LockedStatblocksController';
+document.addEventListener('DOMContentLoaded', async () => {
+	await loadAnimals();
+	setUpObservers();
 });
