@@ -1,6 +1,6 @@
 export class StatRepository {
 
-	private static readonly characterURL: string = 'https://nivel20.com/s/w4eazczc';
+	private static readonly characterURL: string = 'https://nivel20.com/games/dnd-5/characters/1377391-francis-kues';
 
 	private static instance: StatRepository;
 	private document: Document;
@@ -44,7 +44,6 @@ export class StatRepository {
 
 	public getStat(index: number): number {
 		const characterDetails: Element = this.document.getElementsByClassName("character-details")[0];
-		console.log(characterDetails.innerHTML);
 		const tabContent: Element = characterDetails.getElementsByClassName("tab-content")[0];
 		const panelInfo: Element = tabContent.getElementsByClassName("tab-pane")[0];
 		const abilityGrid: Element = panelInfo.getElementsByClassName("card-body")[0].getElementsByClassName("ability-grid")[0];
