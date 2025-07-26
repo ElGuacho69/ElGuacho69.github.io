@@ -3,7 +3,7 @@
   "size": "mediano",
   "armorClass": 11,
   "hitPoints": 11,
-  "speed": 25,
+  "speed": "25 ft.",
   "strength": 13,
   "dexterity": 10,
   "constitution": 12,

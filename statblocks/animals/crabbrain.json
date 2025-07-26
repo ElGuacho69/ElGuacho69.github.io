@@ -3,7 +3,7 @@
   "size": "minúsculo",
   "armorClass": 12,
   "hitPoints": 2,
-  "speed": 20,
+  "speed": "20 ft. 20 ft. cavando",
   "strength": 2,
   "dexterity": 12,
   "constitution": 8,

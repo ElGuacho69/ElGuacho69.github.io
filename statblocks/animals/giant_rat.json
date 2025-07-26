@@ -3,7 +3,7 @@
   "size": "pequeño",
   "armorClass": 13,
   "hitPoints": 7,
-  "speed": 30,
+  "speed": "30 ft.",
   "strength": 2,
   "dexterity": 14,
   "constitution": 11,

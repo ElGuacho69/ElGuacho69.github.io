@@ -1,26 +1,30 @@
 {
-	"name": "Hurón",
-	"size": "pequeño",
-	"armorClass": 13,
-	"hitPoints": 2,
-	"speed": 35,
-	"strength": 3,
-	"dexterity": 16,
-	"constitution": 8,
-	"intelligence": 5,
-	"wisdom": 10,
-	"charisma": 7,
-	"skills": "Percepción +3, sigilo +5",
-	"challengeRating": 0,
-	"proficiencyBonus": 2,
-	"sections": [
-		{
-			"title": "Rasgos",
-			"texts": ["*Olfato y oído agudos.* El hurón tiene ventaja en las tiradas de percepción basadas en olfato y oído."]
-		},
-		{
-			"title": "Acciones",
-			"texts": ["*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 1 perforante."]
-		}
-	]
+  "name": "Hurón",
+  "size": "pequeño",
+  "armorClass": 13,
+  "hitPoints": 2,
+  "speed": "35 ft.",
+  "strength": 3,
+  "dexterity": 16,
+  "constitution": 8,
+  "intelligence": 5,
+  "wisdom": 10,
+  "charisma": 7,
+  "skills": "Percepción +3, sigilo +5",
+  "challengeRating": 0,
+  "proficiencyBonus": 2,
+  "sections": [
+    {
+      "title": "Rasgos",
+      "texts": [
+        "*Olfato y oído agudos.* El hurón tiene ventaja en las tiradas de percepción basadas en olfato y oído."
+      ]
+    },
+    {
+      "title": "Acciones",
+      "texts": [
+        "*Mordisco.* _Ataque cuerpo a cuerpo:_ +2 a dar, sin alcance, un objetivo. _Daño:_ 1 perforante."
+      ]
+    }
+  ]
 }

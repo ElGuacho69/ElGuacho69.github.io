@@ -1,33 +1,33 @@
 {
-	"name": "Slumbear",
-	"size": "grande",
-	"armorClass": 12,
-	"hitPoints": 60,
-	"speed": 30,
-	"strength": 14,
-	"dexterity": 8,
-	"constitution": 16,
-	"intelligence": 4,
-	"wisdom": 10,
-	"charisma": 6,
-	"skills": "Percepción +3",
-	"challengeRating": 2,
-	"proficiencyBonus": 2,
-	"sections": [
-		{
-			"title": "Rasgos",
-			"texts": [
-				"*Sueño profundo.* Al intentar dormir al slumbear, se considera que tiene la mitad de sus puntos de vida. Si el sueño se evita mediante una tirada de salvación, tiene desventaja en la misma.",
-				"*Hibernación.* Mientras está dormido, el slumbear es resistente a todos los tipos de daño salvo el de fuerza y regenera 4 puntos de vida al inicio de su turno."
-			]
-		},
-		{
-			"title": "Acciones",
-			"texts": [
-				"*Multiataque.* El slumbear hace dos ataques con sus zarpas.",
-				"*Zarpazo.* _Ataque cuerpo a cuerpo:_ +3 a dar, sin alcance, un objetivo. _Daño:_ 2d6+2 cortante.",
-				"*Bostezo.* Todas las criaturas que escuchen el bostezo del slumbear, él mismo incluido, deben hacer una tirada de salvación de constitución CD 13 o caer dormidos."
-			]
-		}
-	]
+  "name": "Slumbear",
+  "size": "grande",
+  "armorClass": 12,
+  "hitPoints": 60,
+  "speed": "30 ft.",
+  "strength": 14,
+  "dexterity": 8,
+  "constitution": 16,
+  "intelligence": 4,
+  "wisdom": 10,
+  "charisma": 6,
+  "skills": "Percepción +3",
+  "challengeRating": 2,
+  "proficiencyBonus": 2,
+  "sections": [
+    {
+      "title": "Rasgos",
+      "texts": [
+        "*Sueño profundo.* Al intentar dormir al slumbear, se considera que tiene la mitad de sus puntos de vida. Si el sueño se evita mediante una tirada de salvación, tiene desventaja en la misma.",
+        "*Hibernación.* Mientras está dormido, el slumbear es resistente a todos los tipos de daño salvo el de fuerza y regenera 4 puntos de vida al inicio de su turno."
+      ]
+    },
+    {
+      "title": "Acciones",
+      "texts": [
+        "*Multiataque.* El slumbear hace dos ataques con sus zarpas.",
+        "*Zarpazo.* _Ataque cuerpo a cuerpo:_ +3 a dar, sin alcance, un objetivo. _Daño:_ 2d6+2 cortante.",
+        "*Bostezo.* Todas las criaturas que escuchen el bostezo del slumbear, él mismo incluido, deben hacer una tirada de salvación de constitución CD 13 o caer dormidos."
+      ]
+    }
+  ]
 }
