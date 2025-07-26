@@ -75,10 +75,10 @@
 		textSocket
 	</div>
 `;
-  var skillSectionTemplate = `;
-							<div class="g--margin-vertical-3">
-								skillSocket
-							</div>`;
+  var skillSectionTemplate = `
+	<div class="g--margin-vertical-3">
+		skillSocket
+	</div>`;
   var navbarItemTemplate = `<a href="#idSocket" class="c-navbar__item">nameSocket</a>`;
   var boldTemplate = `<span class="g--bold">boldTextSocket</span>`;
   var italicTemplate = `<span class="g--italic">italicTextSocket</span>`;

@@ -75,10 +75,10 @@ const sectionTemplate: string = `
 	</div>
 `;
 
-const skillSectionTemplate: string  = `;
-							<div class="g--margin-vertical-3">
-								skillSocket
-							</div>`;
+const skillSectionTemplate: string  = `
+	<div class="g--margin-vertical-3">
+		skillSocket
+	</div>`;
 
 const navbarItemTemplate: string = `<a href="#idSocket" class="c-navbar__item">nameSocket</a>`;
 

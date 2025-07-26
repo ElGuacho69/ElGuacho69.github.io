@@ -7,7 +7,7 @@ export class SkillSection {
 	}
 
 	toHtml(): string {
-		let fullSkillsText = "";
+		let fullSkillsText: string = "";
 		for(let i: number = 0; i < this.skillTexts.length; i++) {
 			let skillText = this.skillTexts[i];
 			skillText = replaceAllByTemplate(skillText, '*', boldTemplate, 'boldTextSocket');
