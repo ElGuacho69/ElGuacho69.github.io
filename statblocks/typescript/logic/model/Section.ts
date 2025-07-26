@@ -26,11 +26,4 @@ export class Section {
 		template = template.replace('textSocket', fullSectionText);
 		return template;
 	}
-
-	splitFirst(originalString: string, delimiter: string) {
-		const arr: string[] = originalString.split(delimiter);
-		let result = arr.splice(0,2);
-		result.push(arr.join(delimiter));
-		return result;
-	}
 }
