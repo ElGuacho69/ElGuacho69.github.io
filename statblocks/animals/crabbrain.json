@@ -10,7 +10,11 @@
   "intelligence": 15,
   "wisdom": 12,
   "charisma": 11,
-  "skills": "Visión en la oscuridad 10 ft.",
+  "skills": [
+    "*Inmunidad al daño* psíquico",
+    "*Sentidos* Visión en la oscuridad 10 ft.",
+    "*Hablididades* telepatía 120 ft."
+  ],
   "challengeRating": 0.125,
   "proficiencyBonus": 2,
   "sections": [

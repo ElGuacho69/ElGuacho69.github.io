@@ -10,7 +10,7 @@
   "intelligence": 2,
   "wisdom": 10,
   "charisma": 3,
-  "skills": "Visión en la oscuridad 10 ft.",
+  "skills": ["*Sentidos* Visión en la oscuridad 10 ft."],
   "challengeRating": 0,
   "proficiencyBonus": 2,
   "sections": [

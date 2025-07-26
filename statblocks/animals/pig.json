@@ -10,7 +10,7 @@
   "intelligence": 3,
   "wisdom": 7,
   "charisma": 4,
-  "skills": "Percepción +3",
+  "skills": ["*Habilidades* Percepción +3"],
   "challengeRating": 0.125,
   "proficiencyBonus": 2,
   "sections": [
