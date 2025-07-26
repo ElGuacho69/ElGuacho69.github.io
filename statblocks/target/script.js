@@ -11,7 +11,7 @@
 								<span class="g--bold">Puntos de vida</span> hitPointsSocket
 							</div>
 							<div>
-								<span class="g--bold">Velocidad</span> speedSocket ft.
+								<span class="g--bold">Velocidad</span> speedSocket
 							</div>
 							<hr class="c-statblock__separator" />
 							<div class="l-stat-container">
@@ -284,7 +284,7 @@
 
   // typescript/persistance/nivel20API/StatRepository.ts
   var StatRepository = class _StatRepository {
-    static characterURL = "https://nivel20.com/s/w4eazczc";
+    static characterURL = "https://nivel20.com/games/dnd-5/characters/1377391-francis-kues";
     static instance;
     document;
     static STR = 0;
@@ -320,7 +320,6 @@
     }
     getStat(index) {
       const characterDetails = this.document.getElementsByClassName("character-details")[0];
-      console.log(characterDetails.innerHTML);
       const tabContent = characterDetails.getElementsByClassName("tab-content")[0];
       const panelInfo = tabContent.getElementsByClassName("tab-pane")[0];
       const abilityGrid = panelInfo.getElementsByClassName("card-body")[0].getElementsByClassName("ability-grid")[0];
