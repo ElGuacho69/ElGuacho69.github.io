@@ -9,7 +9,7 @@ const statblockTemplate: string = `<div class="c-statblock" id="idSocket">
 								<span class="g--bold">Puntos de vida</span> hitPointsSocket
 							</div>
 							<div>
-								<span class="g--bold">Velocidad</span> speedSocket ft.
+								<span class="g--bold">Velocidad</span> speedSocket
 							</div>
 							<hr class="c-statblock__separator" />
 							<div class="l-stat-container">

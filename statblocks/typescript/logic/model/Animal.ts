@@ -6,7 +6,7 @@ export class Animal {
 
 	private armorClass: number;
 	private hitPoints: number;
-	private speed: number;
+	private speed: string;
 
 	private strength: number;
 	private dexterity: number;
@@ -28,7 +28,7 @@ export class Animal {
 
 	armorClass: number,
 	hitPoints: number,
-	speed: number,
+	speed: string,
 
 	strength: number,
 	dexterity: number,
