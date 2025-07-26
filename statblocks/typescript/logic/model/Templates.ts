@@ -52,9 +52,7 @@ const statblockTemplate: string = `<div class="c-statblock" id="idSocket">
 
 							</div>
 							<hr class="c-statblock__separator" />
-							<div class="g--margin-vertical-3">
-								<span class="g--bold">Habilidades</span> skillsSocket
-							</div>
+							skillsSocket
 							<div class="g--margin-vertical-3">
 								<span class="g--bold">Valor de desafío(VD)</span> challengeRatingSocket
 							</div>
@@ -77,6 +75,11 @@ const sectionTemplate: string = `
 	</div>
 `;
 
+const skillSectionTemplate: string  = `;
+							<div class="g--margin-vertical-3">
+								skillSocket
+							</div>`;
+
 const navbarItemTemplate: string = `<a href="#idSocket" class="c-navbar__item">nameSocket</a>`;
 
 const boldTemplate: string = `<span class="g--bold">boldTextSocket</span>`;
@@ -85,4 +88,4 @@ const italicTemplate: string = `<span class="g--italic">italicTextSocket</span>`
 
 const breakTemplate: string = "<br/>"
 
-export { statblockTemplate, sectionTemplate, navbarItemTemplate, boldTemplate, italicTemplate, breakTemplate };
+export { statblockTemplate, sectionTemplate, skillSectionTemplate, navbarItemTemplate, boldTemplate, italicTemplate, breakTemplate };

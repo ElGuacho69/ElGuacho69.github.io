@@ -1,4 +1,5 @@
 import { Section } from './Section';
+import { SkillSection } from './SkillSection';
 import { statblockTemplate, breakTemplate } from './Templates';
 export class Animal {
 	private name: string;
@@ -15,7 +16,7 @@ export class Animal {
 	private wisdom: number;
 	private charisma: number;
 
-	private skills: string;
+	private skills: SkillSection;
 	private challengeRating: number;
 	private proficiencyBonus: number;
 
@@ -37,7 +38,7 @@ export class Animal {
 	wisdom: number,
 	charisma: number,
 
-	skills: string,
+	skills: SkillSection,
 	challengeRating: number,
 	proficiencyBonus: number,
 
@@ -82,7 +83,7 @@ export class Animal {
 							.replace('wisdomModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.wisdom)))
 							.replace('charismaSocket', this.charisma.toString())
 							.replace('charismaModifierSocket', Animal.formatModifier(Animal.scoreToModifier(this.charisma)))
-							.replace('skillsSocket', this.skills)
+							.replace('skillsSocket', this.skills.toHtml())
 							.replace('challengeRatingSocket', this.getFormattedChallengeRating())
 							.replace('proficiencyBonusSocket', this.proficiencyBonus.toString())
 							.replace('idSocket', this.getId())
