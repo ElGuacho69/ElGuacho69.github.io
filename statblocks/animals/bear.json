@@ -1,0 +1,34 @@
+{
+	"name": "Oso",
+	"size": "grande",
+	"armorClass": 11,
+	"hitPoints": 34,
+	"speed": "40 ft., 40 ft. trepando",
+	"strength": 19,
+	"dexterity": 10,
+	"constitution": 16,
+	"intelligence": 2,
+	"wisdom": 13,
+	"charisma": 7,
+	"skills": [
+		"*Habilidades* Percepción +3"
+	],
+	"challengeRating": 1,
+	"proficiencyBonus": 2,
+	"sections": [
+		{
+			"title": "Rasgos",
+			"texts": [
+				"*Olfato agudo.* El oso tiene ventaja en las tiradas de percepción basadas en olfato."
+			]
+		},
+		{
+			"title": "Acciones",
+			"texts": [
+				"*Multiataque.* El oso realiza dos ataques: uno con su mordisco y uno con sus garras.",
+				"*Mordisco.* _Ataque cuerpo a cuerpo:_ +5 a dar, sin alcance, un objetivo. _Daño:_ 1d8+4 perforante.",
+				"*Garras.* _Ataque cuerpo a cuerpo:_ +5 a dar, sin alcance, un objetivo. _Daño:_ 2d6+4 cortante."
+			]
+		}
+	]
+}
